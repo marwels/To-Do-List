@@ -1,9 +1,16 @@
+@font-face {
+    font-family: MAnrope;
+    src: url('./fonts/Manrope[wght].ttf') format('ttf');
+    font-style: normal;
+}
+
 body {
     margin: 0;
-        background-color: #ffffff;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        background-size: cover;
-        background-image: url('./images/5550760.jpg');
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url('./images/5550760.jpg');
+    font-family: MAnrope;
 }
