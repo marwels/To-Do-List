@@ -1,10 +1,12 @@
 import "./style.css";
 
 import { Header } from "./components/header";
+import { Left } from "./components/left";
 
 const App = function App(parentEl) {
   const children = [
     Header(parentEl),
+    Left(parentEl),
     // Router(parentEl, [
     //   ["#Sweet", (targetEl) => PageSweet(targetEl)],
     //   ["#Savory", (targetEl) => PageSavory(targetEl)],
