@@ -1,3 +1,9 @@
+:root {
+    --header-font-size: 2.7rem;
+    --left-menu-bigger-font-size: 1.5rem;
+    --left-menu-smaller-font-size: 1.3rem;
+}
+
 @font-face {
     font-family: MAnrope;
     src: url('./fonts/Manrope.ttf') format('ttf');
@@ -32,7 +38,7 @@ body {
 .headerContainer .hamburger {
     margin: 0 10px;
     padding: 5px;
-    font-size: 2.5rem
+    font-size: var(--header-font-size);
 }
 
 
@@ -45,9 +51,39 @@ body {
 
 .TitleBox .toDoIcon {
 color: #f78ccc;
-font-size: 2.5rem;
+font-size: var(--header-font-size);;
 }
 
 .TitleBox .toDo_logo {
     color: #6599fa;
+}
+
+.leftContainer {
+    padding: 5vh;
+background-color: #ffffffbe;
+width: 18vw;
+height: 90vh;
+}
+
+.divForLeftMenu {
+    display: flex;
+    align-items: center;
+    font-size: var(--left-menu-smaller-font-size);
+    font-weight: normal;
+}
+
+.divForLeftMenu:hover {
+    background-color: #fbbf68;
+        cursor: pointer;
+}
+
+.divForLeftMenu .icon {
+    font-size: var(--left-menu-smaller-font-size);
+    margin: 0 10px;
+    color: #f78ccc;
+}
+
+.homePartContainer, .projectsContainer {
+    font-size: var(--left-menu-bigger-font-size);
+    font-weight: bold;
 }

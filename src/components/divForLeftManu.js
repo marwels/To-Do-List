@@ -5,7 +5,7 @@ const divForLeftMenu = function divForLeftMenu(
   innerText
 ) {
   const container = document.createElement("div");
-  container.className = className;
+  container.className = `divForLeftMenu ${className}`;
 
   const iconContainer = document.createElement("div");
   iconContainer.className = `icon ${className} material-symbols-outlined`;

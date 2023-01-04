@@ -22,7 +22,7 @@ const Left = function Left(targetEl) {
   // projects part
 
   const projectsContainer = document.createElement("div");
-  projectsContainer.className = "homePartContainer";
+  projectsContainer.className = "projectsContainer";
 
   const projectsTitle = document.createElement("div");
   projectsTitle.className = "projectsTitle";
