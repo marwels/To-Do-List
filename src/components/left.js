@@ -33,6 +33,8 @@ const Left = function Left(targetEl) {
   projectsList.className = "projectsList";
   projectsContainer.appendChild(projectsList);
 
+  divForLeftMenu(projectsContainer, "addProject", "add_circle", "Add Project");
+
   leftContainer.appendChild(homePartContainer);
   leftContainer.appendChild(projectsContainer);
 
