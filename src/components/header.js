@@ -3,13 +3,15 @@ const Header = function Header(targetEl) {
   headerContainer.className = "headerContainer";
 
   const hamburger = document.createElement("div");
-  hamburger.className = "hamburger";
+  hamburger.className = "hamburger material-symbols-outlined";
+  hamburger.innerText = "menu";
 
   const TitleBox = document.createElement("div");
   TitleBox.className = "TitleBox";
 
   const icon = document.createElement("div");
-  icon.className = "toDoIcon";
+  icon.className = "toDoIcon material-symbols-outlined";
+  icon.innerText = "done_all";
 
   const what = document.createElement("div");
   what.className = "what_logo";

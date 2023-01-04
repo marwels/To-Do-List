@@ -14,3 +14,21 @@ body {
     background-image: url('./images/5550760.jpg');
     font-family: MAnrope;
 }
+
+.headerContainer {
+    width: 100vw;
+    height: 10vh;
+    background-color: #ffffffbe;
+    display: flex;
+    align-items: center;
+}
+
+
+.headerContainer .TitleBox {
+    display: flex;
+}
+
+.headerContainer .hamburger {
+    margin: 0 10px;
+    padding: 5px;
+}
