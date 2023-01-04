@@ -1,4 +1,5 @@
 import { divForLeftMenu } from "./divForLeftManu";
+import addProject from "./addProject";
 
 const Left = function Left(targetEl) {
   const leftContainer = document.createElement("div");
@@ -33,7 +34,13 @@ const Left = function Left(targetEl) {
   projectsList.className = "projectsList";
   projectsContainer.appendChild(projectsList);
 
-  divForLeftMenu(projectsContainer, "addProject", "add_circle", "Add Project");
+  divForLeftMenu(
+    projectsContainer,
+    "addProject",
+    "add_circle",
+    "Add Project",
+    () => addProject(projectsList)
+  );
 
   leftContainer.appendChild(homePartContainer);
   leftContainer.appendChild(projectsContainer);
@@ -45,4 +52,4 @@ const Left = function Left(targetEl) {
   };
 };
 
-export { Left };
+export default Left;

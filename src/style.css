@@ -22,7 +22,6 @@ body {
 }
 
 .headerContainer {
-    width: 100vw;
     height: 10vh;
     background-color: #ffffffbe;
     display: flex;
@@ -33,6 +32,8 @@ body {
 
 .headerContainer .TitleBox {
     display: flex;
+    flex: 1 1;
+    justify-content: center;
 }
 
 .headerContainer .hamburger {

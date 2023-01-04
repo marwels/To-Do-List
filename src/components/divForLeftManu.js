@@ -2,7 +2,8 @@ const divForLeftMenu = function divForLeftMenu(
   targetEl,
   className,
   icon,
-  innerText
+  innerText,
+  onClick
 ) {
   const container = document.createElement("div");
   container.className = `divForLeftMenu ${className}`;
@@ -18,6 +19,10 @@ const divForLeftMenu = function divForLeftMenu(
   container.appendChild(menuItem);
 
   targetEl.appendChild(container);
+
+  if (onClick) {
+    container.addEventListener("click", onClick);
+  }
 
   return () => {
     targetEl.removeChild(container);

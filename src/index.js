@@ -1,7 +1,7 @@
 import "./style.css";
 
 import { Header } from "./components/header";
-import { Left } from "./components/left";
+import Left from "./components/left";
 
 const App = function App(parentEl) {
   const children = [
