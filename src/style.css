@@ -5,8 +5,8 @@
 }
 
 @font-face {
-    font-family: MAnrope;
-    src: url('./fonts/Manrope.ttf') format('ttf');
+    font-family: Manrope;
+    src: url('./fonts/Manrope.ttf') format('truetype');
     font-style: normal;
 }
 
@@ -18,7 +18,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-image: url('./images/5550760.jpg');
-    font-family: MAnrope;
+    font-family: Manrope;
 }
 
 .headerContainer {
@@ -26,7 +26,7 @@ body {
     background-color: #ffffffbe;
     display: flex;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: var(--header-font-size);
 }
 
 
@@ -52,7 +52,8 @@ body {
 
 .TitleBox .toDoIcon {
 color: #f78ccc;
-font-size: var(--header-font-size);;
+font-size: var(--header-font-size);
+line-height: 1.4;
 }
 
 .TitleBox .toDo_logo {
