@@ -1,4 +1,4 @@
-const addProject = function addProject(targetEl) {
+const addProjectDOM = function addProjectDOM(targetEl) {
   const addProjectContainer = document.createElement("div");
   addProjectContainer.className = "addProjectContainer";
 
@@ -19,11 +19,15 @@ const addProject = function addProject(targetEl) {
   const addButton = document.createElement("button");
   addButton.innerText = "Add";
   addButton.className = "Add";
+  // addButton.addEventListener("click");
   buttons.appendChild(addButton);
 
   const cancelButton = document.createElement("button");
   cancelButton.innerText = "Cancel";
   cancelButton.className = "Cancel";
+  cancelButton.addEventListener("click", () =>
+    targetEl.removeChild(addProjectContainer)
+  );
   buttons.appendChild(cancelButton);
 
   addProjectContainer.appendChild(buttons);
@@ -35,4 +39,4 @@ const addProject = function addProject(targetEl) {
   };
 };
 
-export default addProject;
+export default addProjectDOM;

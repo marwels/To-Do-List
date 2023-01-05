@@ -1,5 +1,5 @@
 import liForLeftMenu from "./liForLeftManu";
-import addProject from "./addProject";
+import addProjectDOM from "./addProjectDOM";
 
 const Left = function Left(targetEl) {
   const leftContainer = document.createElement("nav");
@@ -44,7 +44,7 @@ const Left = function Left(targetEl) {
     "addProject",
     "add_circle",
     "Add Project",
-    () => addProject(projectsList)
+    () => addProjectDOM(projectsList)
   );
 
   leftContainer.appendChild(homePartContainer);
