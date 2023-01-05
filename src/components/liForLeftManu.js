@@ -1,19 +1,19 @@
-const divForLeftMenu = function divForLeftMenu(
+const liForLeftMenu = function liForLeftMenu(
   targetEl,
   className,
   icon,
   innerText,
   onClick
 ) {
-  const container = document.createElement("div");
-  container.className = `divForLeftMenu ${className}`;
+  const container = document.createElement("li");
+  container.className = `liForLeftMenu ${className}`;
 
   const iconContainer = document.createElement("div");
   iconContainer.className = `icon ${className} material-symbols-outlined`;
   iconContainer.innerText = icon;
   container.appendChild(iconContainer);
 
-  const menuItem = document.createElement("p");
+  const menuItem = document.createElement("a");
   menuItem.className = `menuItem ${className}`;
   menuItem.innerText = innerText;
   container.appendChild(menuItem);
@@ -29,4 +29,4 @@ const divForLeftMenu = function divForLeftMenu(
   };
 };
 
-export { divForLeftMenu };
+export default liForLeftMenu;

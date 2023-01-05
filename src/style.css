@@ -21,6 +21,16 @@ body {
     font-family: Manrope;
 }
 
+ul {
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    
+}
+
 .headerContainer {
     height: 10vh;
     background-color: #ffffffbe;
@@ -67,25 +77,26 @@ width: 18vw;
 height: 90vh;
 }
 
-.divForLeftMenu {
+.liForLeftMenu {
     display: flex;
     align-items: center;
     font-size: var(--left-menu-smaller-font-size);
     font-weight: normal;
+    margin: 6px 0;
 }
 
-.divForLeftMenu:hover {
+.liForLeftMenu:hover {
     background-color: #fbbf68;
         cursor: pointer;
 }
 
-.divForLeftMenu .icon {
+.liForLeftMenu .icon {
     font-size: var(--left-menu-smaller-font-size);
     margin: 0 10px;
     color: #f78ccc;
 }
 
-.homePartContainer, .projectsContainer {
+.leftContainer .homeTitle, .leftContainer .projectsTitle {
     font-size: var(--left-menu-bigger-font-size);
     font-weight: bold;
 }
