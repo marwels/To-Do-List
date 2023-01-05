@@ -1,7 +1,8 @@
 import liForLeftMenu from "./liForLeftManu";
 import addProjectDOM from "./addProjectDOM";
+import projectsListDIV from "./projectsListDIV";
 
-const Left = function Left(targetEl) {
+const Left = function Left(targetEl, projects, onAddProject) {
   const leftContainer = document.createElement("nav");
   leftContainer.className = "leftContainer";
 
@@ -35,16 +36,18 @@ const Left = function Left(targetEl) {
   projectsTitle.innerText = "Projects";
   projectsContainer.appendChild(projectsTitle);
 
-  const projectsList = document.createElement("div");
-  projectsList.className = "projectsList";
-  projectsContainer.appendChild(projectsList);
+  // const projectsList = document.createElement("div");
+  // projectsList.className = "projectsList";
+  // projectsContainer.appendChild(projectsList);
+
+  projectsListDIV(projectsContainer, projects);
 
   liForLeftMenu(
     projectsContainer,
     "addProject",
     "add_circle",
     "Add Project",
-    () => addProjectDOM(projectsList)
+    () => addProjectDOM(projectsContainer, onAddProject)
   );
 
   leftContainer.appendChild(homePartContainer);
