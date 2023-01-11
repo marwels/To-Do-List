@@ -35,4 +35,4 @@ const Header = function Header(targetEl) {
   };
 };
 
-export { Header };
+export default Header;

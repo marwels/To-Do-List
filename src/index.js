@@ -1,10 +1,22 @@
 import "./style.css";
 
-import { Header } from "./components/header";
+import storageAvailable from "./storageCheck";
+import Header from "./components/header";
 import Left from "./components/left";
 import AllTasksPage from "./components/AllTasksPage";
 
 const App = function App(parentEl) {
+  if (storageAvailable("localStorage")) {
+    // Yippee! We can use localStorage awesomeness
+    // if (!localStorage.getItem("bgcolor")) {
+    //   populateStorage();
+    // } else {
+    //   setStyles();
+    // }
+  } else {
+    // Too bad, no localStorage for us
+  }
+
   let projects = [];
 
   function onAddProject(projectName) {
