@@ -1,3 +1,5 @@
+import createElement from "./small/createElement";
+
 const addProjectDOM = function addProjectDOM(targetEl, onAddProject) {
   targetEl.replaceChildren();
 
@@ -7,10 +9,12 @@ const addProjectDOM = function addProjectDOM(targetEl, onAddProject) {
   const iconAndInput = document.createElement("div");
   iconAndInput.className = "iconAndInput";
 
-  const icon = document.createElement("div");
-  icon.className = "material-symbols-outlined iconAddProject";
-  icon.innerText = "radio_button_checked";
-  iconAndInput.appendChild(icon);
+  createElement(
+    iconAndInput,
+    "div",
+    "material-symbols-outlined iconAddProject",
+    "radio_button_checked"
+  );
 
   const inputAddProject = document.createElement("input");
   inputAddProject.className = "inputAddProject";
