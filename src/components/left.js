@@ -42,15 +42,19 @@ const Left = function Left(targetEl, projects, onAddProject) {
 
   projectsListDIV(projectsContainer, projects);
 
+  const addNewProjectContainer = document.createElement("div");
+  projectsContainer.className = "addNewProjectContainer";
+  projectsContainer.appendChild(addNewProjectContainer);
+
   let destroyAddForm;
 
   liForLeftMenu(
-    projectsContainer,
+    addNewProjectContainer,
     "addProject",
     "add_circle",
     "Add Project",
     () => {
-      destroyAddForm = addProjectDOM(projectsContainer, onAddProject, () =>
+      destroyAddForm = addProjectDOM(addNewProjectContainer, onAddProject, () =>
         destroyAddForm()
       );
     }

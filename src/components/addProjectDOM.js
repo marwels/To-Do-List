@@ -1,4 +1,6 @@
-const addProjectDOM = function addProjectDOM(targetEl, onAddProject, onCancel) {
+const addProjectDOM = function addProjectDOM(targetEl, onAddProject) {
+  targetEl.replaceChildren();
+
   const addProjectContainer = document.createElement("div");
   addProjectContainer.className = "addProjectContainer";
 
@@ -26,12 +28,6 @@ const addProjectDOM = function addProjectDOM(targetEl, onAddProject, onCancel) {
     onAddProject(inputAddProject.value)
   );
   buttons.appendChild(addButton);
-
-  const cancelButton = document.createElement("button");
-  cancelButton.innerText = "Cancel";
-  cancelButton.className = "Cancel";
-  cancelButton.addEventListener("click", () => onCancel());
-  buttons.appendChild(cancelButton);
 
   addProjectContainer.appendChild(buttons);
 
