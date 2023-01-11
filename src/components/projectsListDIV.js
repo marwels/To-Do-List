@@ -23,6 +23,8 @@ const projectsListDIV = function projectsListDIV(targetEl, projects) {
     deleteOrRename.innerText = "more_vert";
     singleProjectContainer.appendChild(deleteOrRename);
     children.push(singleProjectContainer);
+    targetEl.replaceChildren(singleProjectContainer);
+    // replaceChildren
   }
   return () => {
     children.forEach((element) => {

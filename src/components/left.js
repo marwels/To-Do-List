@@ -49,8 +49,12 @@ const Left = function Left(targetEl, projects, onAddProject) {
     "add_circle",
     "Add Project",
     () => {
-      destroyAddForm = addProjectDOM(addNewProjectContainer, onAddProject, () =>
-        destroyAddForm()
+      destroyAddForm = addProjectDOM(
+        addNewProjectContainer,
+        onAddProject,
+        projectsList,
+        projects,
+        () => destroyAddForm()
       );
     }
   );
