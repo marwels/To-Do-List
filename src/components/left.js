@@ -36,11 +36,11 @@ const Left = function Left(targetEl, projects, onAddProject) {
   projectsTitle.innerText = "Projects";
   projectsContainer.appendChild(projectsTitle);
 
-  // const projectsList = document.createElement("div");
-  // projectsList.className = "projectsList";
-  // projectsContainer.appendChild(projectsList);
+  const projectsList = document.createElement("div");
+  projectsList.className = "projectsList";
+  projectsContainer.appendChild(projectsList);
 
-  projectsListDIV(projectsContainer, projects);
+  projectsListDIV(projectsList, projects);
 
   const addNewProjectContainer = document.createElement("div");
   projectsContainer.className = "addNewProjectContainer";

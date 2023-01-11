@@ -109,6 +109,8 @@ height: 90vh;
 .leftContainer .addProjectContainer {
     font-size: var(--left-menu-smaller-font-size);
     padding: 5px;
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -123,17 +125,10 @@ height: 90vh;
     font-family: Manrope;
 }
 
-.leftContainer .addProjetButtonsContainer {
-    display: flex;
-    justify-content: space-around;
+.leftContainer button.Add {
+    background-color: #f78ccc;
+    border: solid #f78ccc;
+    border-radius: 3px;
+    font-family: Manrope;
     margin: 5px 0;
-}
-
-.leftContainer .addProjetButtonsContainer button.Add, 
-.leftContainer .addProjetButtonsContainer button.Cancel {
-background-color: #f78ccc;
-border: solid #f78ccc;
-border-radius: 3px;
-font-family: Manrope;
-
 }

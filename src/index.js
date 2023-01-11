@@ -10,6 +10,7 @@ const App = function App(parentEl) {
   function onAddProject(projectName) {
     console.log(`Add new project: ${projectName}`);
     projects.push(projectName);
+    console.log(`projects: ${projects}`);
   }
 
   // document.createDocumentFragment
