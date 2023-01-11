@@ -3,6 +3,7 @@ const projectsListDIV = function projectsListDIV(targetEl, projects) {
   // projectsList.className = "projectsList";
 
   let children = [];
+  targetEl.replaceChildren();
 
   for (let i = 0; i < projects.length; i++) {
     const singleProjectContainer = document.createElement("div");
@@ -23,8 +24,7 @@ const projectsListDIV = function projectsListDIV(targetEl, projects) {
     deleteOrRename.innerText = "more_vert";
     singleProjectContainer.appendChild(deleteOrRename);
     children.push(singleProjectContainer);
-    targetEl.replaceChildren(singleProjectContainer);
-    // replaceChildren
+    targetEl.appendChild(singleProjectContainer);
   }
   return () => {
     children.forEach((element) => {
