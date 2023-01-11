@@ -1,5 +1,5 @@
 const AllTasksPage = function AllTasksPage(targetEl) {
-  const AllTasksPageContainer = document.createElement("nav");
+  const AllTasksPageContainer = document.createElement("div");
   AllTasksPageContainer.className = "AllTasksPageContainer";
 
   const pageTitle = document.createElement("h1");

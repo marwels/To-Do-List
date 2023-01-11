@@ -42,12 +42,18 @@ const Left = function Left(targetEl, projects, onAddProject) {
 
   projectsListDIV(projectsContainer, projects);
 
+  let destroyAddForm;
+
   liForLeftMenu(
     projectsContainer,
     "addProject",
     "add_circle",
     "Add Project",
-    () => addProjectDOM(projectsContainer, onAddProject)
+    () => {
+      destroyAddForm = addProjectDOM(projectsContainer, onAddProject, () =>
+        destroyAddForm()
+      );
+    }
   );
 
   leftContainer.appendChild(homePartContainer);
@@ -56,6 +62,7 @@ const Left = function Left(targetEl, projects, onAddProject) {
   targetEl.appendChild(leftContainer);
 
   return () => {
+    if (destroyAddForm) destroyAddForm();
     targetEl.removeChild(leftContainer);
   };
 };

@@ -16,7 +16,7 @@ const projectsListDIV = function projectsListDIV(targetEl, projects) {
     projectName.innerText = projects[i];
     projectDiv.appendChild(projectName);
 
-    const iconAction = document.createElement("div");
+    const iconAction = document.createElement("button");
     iconAction.className = "material-symbols-outlined iconAction";
     iconAction.innerText = "more_vert";
     projectDiv.appendChild(icon);
