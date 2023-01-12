@@ -114,7 +114,8 @@ height: 90vh;
 
 }
 
-.leftContainer .addProjectContainer:hover {
+.leftContainer .addProjectContainer:hover,
+.leftContainer .singleProjectContainer:hover {
     background-color: #fbbf68;
     cursor: pointer;
 }
@@ -131,4 +132,71 @@ height: 90vh;
     border-radius: 3px;
     font-family: Manrope;
     margin: 5px 0;
+}
+
+.leftContainer .singleProjectContainer {
+    display: flex;
+    margin-top: 2px;
+    padding: 4px;
+    justify-content: space-between;
+    background-color: #ffffff;
+}
+
+.leftContainer .singleProjectContainer button.projectName, 
+.leftContainer .singleProjectContainer .dropdown,
+.leftContainer .singleProjectContainer button.deleteOrRename
+ {
+    background-color: #ffffff;
+    border: none;
+    font-size: var(--left-menu-input-font-size);
+    line-height: 1;
+    
+}
+
+.leftContainer .singleProjectContainer button.projectName {
+    font-family: Manrope;
+}
+
+.leftContainer .singleProjectContainer button.projectName:hover,
+.leftContainer .singleProjectContainer button.deleteOrRename:hover {
+    background-color: #fbbf68;
+    cursor: pointer;
+}
+
+.leftContainer .singleProjectContainer button.deleteOrRename.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.leftContainer .singleProjectContainer .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: fit-content;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.leftContainer .singleProjectContainer .dropdown-content button.rename,
+.leftContainer .singleProjectContainer .dropdown-content button.delete
+ {color: black;
+    text-decoration: none;
+    display: block;
+    background-color: #f78ccc;
+    border: solid #f78ccc;
+    border-radius: 3px;
+    font-family: Manrope;
+    margin: 1px 0;
+}
+
+.leftContainer .singleProjectContainer .dropdown-content button.rename:hover,
+.leftContainer .singleProjectContainer .dropdown-content button.delete:hover,
+.leftContainer button.Add:hover {
+    background-color: #6599fa;
+    border: solid #6599fa;
+}
+
+.leftContainer .singleProjectContainer .dropdown-content.show {
+    display: flex;
+    flex-direction: column;
 }
