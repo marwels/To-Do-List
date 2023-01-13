@@ -8,6 +8,7 @@ const projectsListDIV = function projectsListDIV(targetEl, projects) {
   for (let i = 0; i < projects.length; i++) {
     const singleProjectContainer = document.createElement("div");
     singleProjectContainer.className = "singleProjectContainer";
+    singleProjectContainer.dataset.projectName = projects[i];
 
     // const icon = document.createElement("div");
     // icon.className = "material-symbols-outlined icon";
@@ -30,12 +31,25 @@ const projectsListDIV = function projectsListDIV(targetEl, projects) {
     const dropdown = document.createElement("div");
     dropdown.className = "dropdown-content";
     const dropdownRename = document.createElement("button");
+    dropdownRename.dataset.projectName = projects[i];
     dropdownRename.innerText = "Rename";
     dropdownRename.className = "rename";
+    // dropdownRename.addEventListener("click", () =>
+    // )
     dropdown.appendChild(dropdownRename);
     const dropdownDelete = document.createElement("button");
+    dropdownDelete.dataset.projectName = projects[i];
     dropdownDelete.className = "delete";
     dropdownDelete.innerText = "Delete";
+    dropdownDelete.addEventListener("click", () => {
+      for (let i = 0; i < projects.length; i++) {
+        if (projects[i] === dropdownDelete.dataset.projectName) {
+          projects.splice(i, 1);
+          projectsListDIV(targetEl, projects);
+        }
+      }
+    });
+
     dropdown.appendChild(dropdownDelete);
     deleteOrRenameContainer.appendChild(dropdown);
     singleProjectContainer.appendChild(deleteOrRenameContainer);
