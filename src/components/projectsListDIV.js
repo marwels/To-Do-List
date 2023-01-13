@@ -20,7 +20,7 @@ const projectsListDIV = function projectsListDIV(parentEl, targetEl, projects) {
     const projectName = document.createElement("button");
     projectName.className = "projectName";
     projectName.innerText = projects[i];
-    let projectNameforPageTitle = projectName.innerText;
+    const projectNameforPageTitle = projectName.innerText;
     projectName.addEventListener("click", () => {
       showProject(parentEl, projectNameforPageTitle);
     });
