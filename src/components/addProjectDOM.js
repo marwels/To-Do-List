@@ -5,7 +5,8 @@ const addProjectDOM = function addProjectDOM(
   targetEl,
   onAddProject,
   targetElForProjectsList,
-  projects
+  projects,
+  parentEl
 ) {
   targetEl.replaceChildren();
 
@@ -37,7 +38,7 @@ const addProjectDOM = function addProjectDOM(
   addButton.type = "submit";
   addButton.addEventListener("click", () => {
     onAddProject(inputAddProject.value);
-    projectsListDIV(targetElForProjectsList, projects);
+    projectsListDIV(parentEl, targetElForProjectsList, projects);
   });
 
   addProjectContainer.appendChild(addButton);

@@ -3,7 +3,7 @@ import addProjectDOM from "./addProjectDOM";
 import projectsListDIV from "./projectsListDIV";
 import createElement from "./small/createElement";
 
-const Left = function Left(targetEl, projects, onAddProject) {
+const Left = function Left(parentEl, projects, onAddProject) {
   const leftContainer = document.createElement("nav");
   leftContainer.className = "leftContainer";
 
@@ -35,7 +35,7 @@ const Left = function Left(targetEl, projects, onAddProject) {
   projectsList.className = "projectsList";
   projectsContainer.appendChild(projectsList);
 
-  projectsListDIV(projectsList, projects);
+  projectsListDIV(parentEl, projectsList, projects);
 
   const addNewProjectContainer = document.createElement("div");
   projectsContainer.className = "addNewProjectContainer";
@@ -54,6 +54,7 @@ const Left = function Left(targetEl, projects, onAddProject) {
         onAddProject,
         projectsList,
         projects,
+        parentEl,
         () => destroyAddForm()
       );
     }
@@ -62,11 +63,11 @@ const Left = function Left(targetEl, projects, onAddProject) {
   leftContainer.appendChild(homePartContainer);
   leftContainer.appendChild(projectsContainer);
 
-  targetEl.appendChild(leftContainer);
+  parentEl.appendChild(leftContainer);
 
   return () => {
     if (destroyAddForm) destroyAddForm();
-    targetEl.removeChild(leftContainer);
+    parentEl.removeChild(leftContainer);
   };
 };
 

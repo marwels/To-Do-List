@@ -1,4 +1,6 @@
-const projectsListDIV = function projectsListDIV(targetEl, projects) {
+import showProject from "./showProject";
+
+const projectsListDIV = function projectsListDIV(parentEl, targetEl, projects) {
   // const projectsList = document.createElement("div");
   // projectsList.className = "projectsList";
 
@@ -18,6 +20,10 @@ const projectsListDIV = function projectsListDIV(targetEl, projects) {
     const projectName = document.createElement("button");
     projectName.className = "projectName";
     projectName.innerText = projects[i];
+    let projectNameforPageTitle = projectName.innerText;
+    projectName.addEventListener("click", () => {
+      showProject(parentEl, projectNameforPageTitle);
+    });
     singleProjectContainer.appendChild(projectName);
 
     // dropdown menu rename/delete

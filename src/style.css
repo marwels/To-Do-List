@@ -26,6 +26,16 @@ body {
     font-family: Manrope;
 }
 
+#content {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 10vh auto;
+    grid-template-areas: "header                  header"
+                        "left-side-menu           page-to-diplay";
+}
+
 ul {
     list-style-type: none;
     margin-block-start: 0;
@@ -37,11 +47,13 @@ ul {
 }
 
 .headerContainer {
-    height: 10vh;
+    /* height: 10vh; */
     background-color: #ffffffbe;
     display: flex;
     align-items: center;
     font-size: var(--header-font-size);
+    grid-area: header;
+
 }
 
 
@@ -78,8 +90,9 @@ line-height: 1.4;
 .leftContainer {
     padding: 3vh;
 background-color: #ffffffbe;
-width: 18vw;
-height: 90vh;
+/* width: 18vw;
+height: 90vh; */
+grid-area: left-side-menu;
 }
 
 .liForLeftMenu {
