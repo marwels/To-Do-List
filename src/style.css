@@ -213,3 +213,89 @@ grid-area: left-side-menu;
     display: flex;
     flex-direction: column;
 }
+
+.showProjectPageContainer .addToDoContainer {
+    margin: 30px;
+    border: solid black;
+    padding: 15px 25px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 10vh auto;
+        grid-template-areas: "title         title"
+                            "taskName      description"
+                            "date           priority"
+                            "button         button";
+    row-gap: 10px;
+    /* justify-items: center; */
+}
+
+.showProjectPageContainer .addToDoContainer .addToDoTitle {
+    grid-area: title;
+    margin-block-end: 0em;
+    line-height: 1;
+}
+
+.showProjectPageContainer .addToDoContainer p {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+.showProjectPageContainer .addToDoContainer div.inputAddToDoTitle {
+    grid-area: taskName;
+ } 
+
+ .showProjectPageContainer .addToDoContainer .inputAddToDoDescription {
+     grid-area: description;
+ }
+
+ .showProjectPageContainer .addToDoContainer .inputAddToDoDueDate {
+     grid-area: date;
+ }
+
+ .showProjectPageContainer .addToDoContainer .inputAddToDoPriority {
+     grid-area: priority;
+ }
+
+ .showProjectPageContainer .addToDoContainer .inputAddToDoPriority input[type="radio"] {
+    -webkit-appearance: none;
+        appearance: none;
+        background-color: #fff;
+        margin: 0 5px;
+        width: 1.15em;
+    height: 1.15em;
+    border: 0.1em solid currentColor;
+    border-radius: 50%;
+ }
+
+ .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(2):checked,
+ .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(2):focus,
+ .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(2):hover{
+background-color: green;
+ } 
+
+ .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(3):checked,
+ .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(3):focus, 
+ .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(3):hover {
+    background-color: orange;
+ }
+
+ .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(4):checked,
+ .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(4):focus,
+ .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(4):hover {
+    background-color: red;
+ }
+
+ .showProjectPageContainer .addToDoContainer button.Add {
+     grid-area: button;
+     justify-self: center;background-color: #fff;
+        border: solid #fff;
+        border-radius: 3px;
+        font-family: Manrope;
+        margin: 5px 0;
+ }
+
+ .showProjectPageContainer .addToDoContainer button.Add:hover {
+     background-color: #6599fa;
+     border: solid #6599fa;
+    cursor: pointer;
+ }
