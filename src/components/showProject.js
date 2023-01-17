@@ -1,3 +1,6 @@
+import createElement from "./small/createElement";
+import addToDoDOM from "./addToDoDOM";
+
 const showProject = function showProject(parentElement, projectName) {
   const showProjectPageContainer = document.createElement("div");
   showProjectPageContainer.className = "showProjectPageContainer";
@@ -6,6 +9,14 @@ const showProject = function showProject(parentElement, projectName) {
   pageTitle.className = `pageTitle, ${projectName}`;
   pageTitle.innerText = `Project: ${projectName}`;
   showProjectPageContainer.appendChild(pageTitle);
+  addToDoDOM(showProjectPageContainer, projectName);
+
+  const listOfToDosDIV = createElement(
+    showProjectPageContainer,
+    "div",
+    "listOfToDosDIV"
+  );
+
   parentElement.appendChild(showProjectPageContainer);
 
   return () => {
