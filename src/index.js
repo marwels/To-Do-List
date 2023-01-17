@@ -17,23 +17,27 @@ const App = function App(parentEl) {
     // Too bad, no localStorage for us
   }
 
-  let projects = [];
+  const projects = [];
 
   function onAddProject(projectName) {
     console.log(`Add new project: ${projectName}`);
 
-    // very simple randomization in case of two projects with the same name
-    const identifier = function getRandomIntInclusive(min, max) {
-      const Mmin = Math.ceil(min);
-      const Mmax = Math.floor(max);
-      return Math.floor(Math.random() * (Mmax - Mmin + 1) + Mmin); // The maximum is inclusive and the minimum is inclusive
-    };
-    const identifierForPush = identifier(1, 1000);
+    // // very simple randomization in case of two projects with the same name
+    // const identifier = function getRandomIntInclusive(min, max) {
+    //   const Mmin = Math.ceil(min);
+    //   const Mmax = Math.floor(max);
+    //   return Math.floor(Math.random() * (Mmax - Mmin + 1) + Mmin); // The maximum is inclusive and the minimum is inclusive
+    // };
+    // const identifierForPush = identifier(1, 1000);
 
-    const forPush = `${projectName}${identifierForPush}`;
+    // const forPush = `${projectName}${identifierForPush}`;
 
-    projects.push(projectName);
-    console.log(`projects: ${projects}`);
+    if (projects.includes(projectName)) {
+      const alertWrongName = `You already have a project named ${projectName}`;
+      alert(alertWrongName);
+    } else {
+      projects.push(projectName);
+    }
   }
 
   // document.createDocumentFragment
