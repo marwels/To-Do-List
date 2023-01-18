@@ -4,8 +4,10 @@ import storageAvailable from "./storageCheck";
 import Header from "./components/Header";
 import Left from "./components/left";
 import allTasksPage from "./components/allTasksPage";
+import Router from "./components/Router";
+import homePage from "./components/home";
 
-const App = function App(rootParentEl) {
+const App = function App(targetEl) {
   if (storageAvailable("localStorage")) {
     // Yippee! We can use localStorage awesomeness
     // if (!localStorage.getItem("bgcolor")) {
@@ -25,7 +27,7 @@ const App = function App(rootParentEl) {
     destroyLeft();
     // eslint-disable-next-line no-use-before-define
     destroyLeft = Left(
-      rootParentEl,
+      targetEl,
       projects,
       onAddProject,
       onDeleteProject,
@@ -66,7 +68,7 @@ const App = function App(rootParentEl) {
   // document.createDocumentFragment
 
   destroyLeft = Left(
-    rootParentEl,
+    targetEl,
     projects,
     onAddProject,
     onDeleteProject,
@@ -74,11 +76,20 @@ const App = function App(rootParentEl) {
   );
 
   const children = [
-    Header(rootParentEl),
+    Header(targetEl),
     () => {
       destroyLeft();
     },
-    allTasksPage(rootParentEl),
+    Router(targetEl, [
+      ["", (targetEl) => homePage(targetEl)],
+      ["allTasks", (targetEl) => allTasksPage(targetEl)],
+      // ["today", (targetEl) => TodayPage(targetEl)],
+      // ["next7days", (targetEl) => Next7Page(targetEl)],
+      // ["important", (targetEl) => ImportantPage(targetEl)]
+    ]),
+
+    // allTasksPage(rootParentEl),
+
     // Router(parentEl, [
     //   ["#Sweet", (targetEl) => PageSweet(targetEl)],
     //   ["#Savory", (targetEl) => PageSavory(targetEl)],

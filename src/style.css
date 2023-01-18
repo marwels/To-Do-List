@@ -213,6 +213,9 @@ grid-area: left-side-menu;
     display: flex;
     flex-direction: column;
 }
+.showProjectPageContainer h1.pageTitle {
+    margin-left: 30px;
+}
 
 .showProjectPageContainer .addToDoContainer {
     margin: 30px;

@@ -4,7 +4,7 @@ import ProjectsList from "./ProjectsList";
 import CreateElement from "./small/CreateElement";
 
 const Left = function Left(
-  parentEl,
+  rootParentEl,
   projects,
   onAddProject,
   onDeleteProject,
@@ -18,7 +18,7 @@ const Left = function Left(
   const homePartContainer = document.createElement("div");
   homePartContainer.className = "homePartContainer";
 
-  CreateElement(homePartContainer, "h2", "homeTitle", "Home");
+  // CreateElement(homePartContainer, "h2", "homeTitle", "Home");
 
   const ulHomeWrapper = document.createElement("ul");
   ulHomeWrapper.className = "ulHomeWrapper";
@@ -43,7 +43,8 @@ const Left = function Left(
     (project) => {
       onDeleteProject(project);
     },
-    onChangeName
+    onChangeName,
+    rootParentEl
   );
 
   const addNewProjectContainer = document.createElement("div");
@@ -69,11 +70,11 @@ const Left = function Left(
   leftContainer.appendChild(homePartContainer);
   leftContainer.appendChild(projectsContainer);
 
-  parentEl.appendChild(leftContainer);
+  rootParentEl.appendChild(leftContainer);
 
   return () => {
     if (destroyAddForm) destroyAddForm();
-    parentEl.removeChild(leftContainer);
+    rootParentEl.removeChild(leftContainer);
   };
 };
 

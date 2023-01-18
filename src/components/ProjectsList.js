@@ -42,6 +42,7 @@ const ProjectsList = function ProjectsList(
     }
 
     function onEditableButtonClicked() {
+      window.location.hash = `#project${projectId}`;
       console.log("Show project: " + project.name);
     }
 

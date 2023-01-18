@@ -1,6 +1,6 @@
 import CreateElement from "./small/CreateElement";
 
-const AddTask = function AddTask(targetEl, projectName) {
+const AddTaskForm = function AddTaskForm(targetEl, projectName) {
   const addToDoContainer = document.createElement("div");
   addToDoContainer.className = "addToDoContainer";
 
@@ -104,4 +104,4 @@ const AddTask = function AddTask(targetEl, projectName) {
   };
 };
 
-export default AddTask;
+export default AddTaskForm;

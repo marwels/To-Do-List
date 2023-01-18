@@ -1,22 +1,22 @@
 import CreateElement from "./small/CreateElement";
-import AddTask from "./AddTask";
+import AddTaskForm from "./AddTaskForm";
 
-const ShowProject = function ShowProject(parentElement, projectName) {
+const ShowProject = function ShowProject(targetEl, projectObject) {
   const showProjectPageContainer = document.createElement("div");
   showProjectPageContainer.className = "showProjectPageContainer";
 
   const pageTitle = document.createElement("h1");
-  pageTitle.className = `pageTitle, ${projectName}`;
-  pageTitle.innerText = `Project: ${projectName}`;
+  pageTitle.className = `pageTitle ${projectObject.name}`;
+  pageTitle.innerText = `Project: ${projectObject.name}`;
   showProjectPageContainer.appendChild(pageTitle);
-  AddTask(showProjectPageContainer, projectName);
+  AddTaskForm(showProjectPageContainer, projectObject);
 
   CreateElement(showProjectPageContainer, "div", "listOfToDosDIV");
 
-  parentElement.appendChild(showProjectPageContainer);
+  targetEl.appendChild(showProjectPageContainer);
 
   return () => {
-    parentElement.removeChild(showProjectPageContainer);
+    targetEl.removeChild(showProjectPageContainer);
   };
 };
 
