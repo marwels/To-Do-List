@@ -1,5 +1,5 @@
 import LiForLeftMenu from "./LiForLeftManu";
-import AddProject from "./AddProject";
+import AddProjectForm from "./AddProjectForm";
 import ProjectsList from "./ProjectsList";
 import CreateElement from "./small/CreateElement";
 
@@ -58,8 +58,10 @@ const Left = function Left(
     "add_circle",
     "Add Project",
     () => {
-      destroyAddForm = AddProject(addNewProjectContainer, onAddProject, () =>
-        destroyAddForm()
+      destroyAddForm = AddProjectForm(
+        addNewProjectContainer,
+        onAddProject,
+        () => destroyAddForm()
       );
     }
   );

@@ -1,7 +1,8 @@
 import CreateElement from "./small/CreateElement";
 
-const AddProject = function AddProject(targetEl, onAddProject) {
-  const addProjectContainer = document.createElement("div");
+const AddProjectForm = function AddProjectForm(targetEl, onAddProject) {
+  targetEl.replaceChildren();
+  const addProjectContainer = document.createElement("form");
   addProjectContainer.className = "addProjectContainer";
 
   const iconAndInput = document.createElement("div");
@@ -32,7 +33,9 @@ const AddProject = function AddProject(targetEl, onAddProject) {
   });
 
   addProjectContainer.appendChild(addButton);
-
+  addProjectContainer.addEventListener("submit", () => {
+    onAddProject(inputAddProject.value);
+  });
   targetEl.appendChild(addProjectContainer);
 
   return () => {
@@ -40,4 +43,4 @@ const AddProject = function AddProject(targetEl, onAddProject) {
   };
 };
 
-export default AddProject;
+export default AddProjectForm;

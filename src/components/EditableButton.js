@@ -16,7 +16,6 @@ const EditableButton = function EditableButton(
     renderedElement.addEventListener("submit", (e) => {
       e.preventDefault();
       onChangeName(input.value);
-      debugger;
     });
     renderedElement.appendChild(input);
     parentEl.appendChild(renderedElement);
