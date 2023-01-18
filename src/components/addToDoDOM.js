@@ -1,8 +1,6 @@
 import createElement from "./small/createElement";
 
 const addToDoDOM = function addToDoDOM(targetEl, projectName) {
-  targetEl.replaceChildren();
-
   const addToDoContainer = document.createElement("div");
   addToDoContainer.className = "addToDoContainer";
 

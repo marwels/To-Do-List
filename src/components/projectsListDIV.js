@@ -1,30 +1,59 @@
+import EditableButton from "./editableButton";
 import showProject from "./showProject";
 
-const projectsListDIV = function projectsListDIV(parentEl, targetEl, projects) {
+const projectsListDIV = function projectsListDIV(
+  targetEl,
+  projects,
+  onDelete,
+  onChangeName
+) {
   // const projectsList = document.createElement("div");
   // projectsList.className = "projectsList";
+  const projectsList = document.createElement("div");
+  projectsList.className = "projectsList";
+  targetEl.appendChild(projectsList);
 
-  let children = [];
-  targetEl.replaceChildren();
+  const children = [];
 
-  for (let i = 0; i < projects.length; i++) {
+  projects.forEach((project, projectId) => {
     const singleProjectContainer = document.createElement("div");
     singleProjectContainer.className = "singleProjectContainer";
-    singleProjectContainer.dataset.projectName = projects[i];
+    singleProjectContainer.dataset.projectName = project.name;
 
     // const icon = document.createElement("div");
     // icon.className = "material-symbols-outlined icon";
     // icon.innerText = "radio_button_checked";
     // projectDiv.appendChild(icon);
 
-    const projectName = document.createElement("button");
-    projectName.className = "projectName";
-    projectName.innerText = projects[i];
-    const projectNameforPageTitle = projectName.innerText;
-    projectName.addEventListener("click", () => {
-      showProject(parentEl, projectNameforPageTitle);
-    });
-    singleProjectContainer.appendChild(projectName);
+    // const projectName = document.createElement("button");
+    // projectName.className = "projectName";
+    // projectName.innerText = projects[i];
+    // const projectNameforPageTitle = projectName.innerText;
+    // projectName.addEventListener("click", () => {
+    //   showProject(parentEl, projectNameforPageTitle);
+    // });
+    // singleProjectContainer.appendChild(projectName);
+
+    let editableButtonDestroy;
+
+    function onEditableButtonChangedName(newVal) {
+      console.log(projectId, newVal);
+      onChangeName(projectId, newVal);
+    }
+
+    function onEditableButtonClicked() {
+      console.log("Show project: " + project.name);
+    }
+
+    editableButtonDestroy = EditableButton(
+      singleProjectContainer,
+      project.name,
+      false,
+      onEditableButtonClicked,
+      onEditableButtonChangedName
+    );
+
+    children.push(() => editableButtonDestroy());
 
     // dropdown menu rename/delete
     const deleteOrRenameContainer = document.createElement("div");
@@ -37,23 +66,32 @@ const projectsListDIV = function projectsListDIV(parentEl, targetEl, projects) {
     const dropdown = document.createElement("div");
     dropdown.className = "dropdown-content";
     const dropdownRename = document.createElement("button");
-    dropdownRename.dataset.projectName = projects[i];
+    dropdownRename.dataset.projectName = project.name;
     dropdownRename.innerText = "Rename";
     dropdownRename.className = "rename";
-    // dropdownRename.addEventListener("click", () =>
-    // )
+    dropdownRename.addEventListener("click", () => {
+      editableButtonDestroy();
+      editableButtonDestroy = EditableButton(
+        singleProjectContainer,
+        project.name,
+        true,
+        onEditableButtonClicked,
+        onEditableButtonChangedName
+      );
+    });
     dropdown.appendChild(dropdownRename);
     const dropdownDelete = document.createElement("button");
-    dropdownDelete.dataset.projectName = projects[i];
+    dropdownDelete.dataset.projectName = project.name;
     dropdownDelete.className = "delete";
     dropdownDelete.innerText = "Delete";
     dropdownDelete.addEventListener("click", () => {
-      for (let i = 0; i < projects.length; i++) {
-        if (projects[i] === dropdownDelete.dataset.projectName) {
-          projects.splice(i, 1);
-          projectsListDIV(targetEl, projects);
-        }
-      }
+      // for (let i = 0; i < projects.length; i++) {
+      //   if (projects[i] === dropdownDelete.dataset.projectName) {
+      //     projects.splice(i, 1);
+      //     projectsListDIV(targetEl, projects);
+      //   }
+      // }
+      onDelete(projectId);
     });
 
     dropdown.appendChild(dropdownDelete);
@@ -64,26 +102,24 @@ const projectsListDIV = function projectsListDIV(parentEl, targetEl, projects) {
       dropdown.classList.toggle("show");
     });
 
-    children.push(singleProjectContainer);
-    targetEl.appendChild(singleProjectContainer);
+    projectsList.appendChild(singleProjectContainer);
 
-    window.onclick = function (event) {
+    window.addEventListener("click", (event) => {
       if (!event.target.matches(".dropbtn")) {
         const dropdowns = document.getElementsByClassName("dropdown-content");
         for (let i = 0; i < dropdowns.length; i++) {
           const openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains("show")) {
-            openDropdown.classList.remove("show");
-          }
+          openDropdown.classList.remove("show");
         }
       }
-    };
-  }
+    });
+  });
 
   return () => {
-    children.forEach((element) => {
-      targetEl.removeChild(element);
+    children.forEach((destroy) => {
+      destroy();
     });
+    targetEl.removeChild(projectsList);
   };
 };
 

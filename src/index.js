@@ -17,7 +17,21 @@ const App = function App(parentEl) {
     // Too bad, no localStorage for us
   }
 
-  const projects = [];
+  const projects = new Map();
+
+  let destroyLeft;
+
+  function refreshLeft() {
+    destroyLeft();
+    // eslint-disable-next-line no-use-before-define
+    destroyLeft = Left(
+      parentEl,
+      projects,
+      onAddProject,
+      onDeleteProject,
+      onChangeName
+    );
+  }
 
   function onAddProject(projectName) {
     console.log(`Add new project: ${projectName}`);
@@ -31,20 +45,39 @@ const App = function App(parentEl) {
     // const identifierForPush = identifier(1, 1000);
 
     // const forPush = `${projectName}${identifierForPush}`;
-
-    if (projects.includes(projectName)) {
-      const alertWrongName = `You already have a project named ${projectName}`;
-      alert(alertWrongName);
-    } else {
-      projects.push(projectName);
-    }
+    const newProject = {
+      name: projectName,
+      tasks: new Map(),
+    };
+    projects.set(Date.now(), newProject);
+    refreshLeft();
   }
 
+  function onDeleteProject(projectId) {
+    projects.delete(projectId);
+    refreshLeft();
+  }
+
+  function onChangeName(projectId, newName) {
+    const project = projects.get(projectId);
+    project.name = newName;
+    refreshLeft();
+  }
   // document.createDocumentFragment
+
+  destroyLeft = Left(
+    parentEl,
+    projects,
+    onAddProject,
+    onDeleteProject,
+    onChangeName
+  );
 
   const children = [
     Header(parentEl),
-    Left(parentEl, projects, onAddProject),
+    () => {
+      destroyLeft();
+    },
     AllTasksPage(parentEl),
     // Router(parentEl, [
     //   ["#Sweet", (targetEl) => PageSweet(targetEl)],

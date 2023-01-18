@@ -11,11 +11,7 @@ const showProject = function showProject(parentElement, projectName) {
   showProjectPageContainer.appendChild(pageTitle);
   addToDoDOM(showProjectPageContainer, projectName);
 
-  const listOfToDosDIV = createElement(
-    showProjectPageContainer,
-    "div",
-    "listOfToDosDIV"
-  );
+  createElement(showProjectPageContainer, "div", "listOfToDosDIV");
 
   parentElement.appendChild(showProjectPageContainer);
 

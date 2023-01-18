@@ -1,15 +1,6 @@
 import createElement from "./small/createElement";
-import projectsListDIV from "./projectsListDIV";
 
-const addProjectDOM = function addProjectDOM(
-  targetEl,
-  onAddProject,
-  targetElForProjectsList,
-  projects,
-  parentEl
-) {
-  targetEl.replaceChildren();
-
+const addProjectDOM = function addProjectDOM(targetEl, onAddProject) {
   const addProjectContainer = document.createElement("div");
   addProjectContainer.className = "addProjectContainer";
 
@@ -38,7 +29,6 @@ const addProjectDOM = function addProjectDOM(
   addButton.type = "submit";
   addButton.addEventListener("click", () => {
     onAddProject(inputAddProject.value);
-    projectsListDIV(parentEl, targetElForProjectsList, projects);
   });
 
   addProjectContainer.appendChild(addButton);
