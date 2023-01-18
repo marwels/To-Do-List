@@ -1,13 +1,13 @@
-import createElement from "./small/createElement";
+import CreateElement from "./small/CreateElement";
 
-const addProjectDOM = function addProjectDOM(targetEl, onAddProject) {
+const AddProject = function AddProject(targetEl, onAddProject) {
   const addProjectContainer = document.createElement("div");
   addProjectContainer.className = "addProjectContainer";
 
   const iconAndInput = document.createElement("div");
   iconAndInput.className = "iconAndInput";
 
-  createElement(
+  CreateElement(
     iconAndInput,
     "div",
     "material-symbols-outlined iconAddProject",
@@ -40,4 +40,4 @@ const addProjectDOM = function addProjectDOM(targetEl, onAddProject) {
   };
 };
 
-export default addProjectDOM;
+export default AddProject;

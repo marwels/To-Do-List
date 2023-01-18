@@ -1,4 +1,4 @@
-const liForLeftMenu = function liForLeftMenu(
+const LiForLeftMenu = function LiForLeftMenu(
   targetEl,
   className,
   icon,
@@ -29,4 +29,4 @@ const liForLeftMenu = function liForLeftMenu(
   };
 };
 
-export default liForLeftMenu;
+export default LiForLeftMenu;

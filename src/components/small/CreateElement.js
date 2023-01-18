@@ -1,4 +1,4 @@
-const createElement = function createElement(
+const CreateElement = function CreateElement(
   targetEl,
   type,
   className,
@@ -16,4 +16,4 @@ const createElement = function createElement(
   };
 };
 
-export default createElement;
+export default CreateElement;

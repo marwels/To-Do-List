@@ -1,7 +1,7 @@
-import EditableButton from "./editableButton";
-import showProject from "./showProject";
+import EditableButton from "./EditableButton";
+import ShowProject from "./ShowProject";
 
-const projectsListDIV = function projectsListDIV(
+const ProjectsList = function ProjectsList(
   targetEl,
   projects,
   onDelete,
@@ -123,4 +123,4 @@ const projectsListDIV = function projectsListDIV(
   };
 };
 
-export default projectsListDIV;
+export default ProjectsList;

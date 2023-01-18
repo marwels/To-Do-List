@@ -1,4 +1,4 @@
-const AllTasksPage = function AllTasksPage(targetEl) {
+const allTasksPage = function allTasksPage(targetEl) {
   const AllTasksPageContainer = document.createElement("div");
   AllTasksPageContainer.className = "AllTasksPageContainer";
 
@@ -11,4 +11,4 @@ const AllTasksPage = function AllTasksPage(targetEl) {
   };
 };
 
-export default AllTasksPage;
+export default allTasksPage;

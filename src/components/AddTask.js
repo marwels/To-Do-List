@@ -1,15 +1,15 @@
-import createElement from "./small/createElement";
+import CreateElement from "./small/CreateElement";
 
-const addToDoDOM = function addToDoDOM(targetEl, projectName) {
+const AddTask = function AddTask(targetEl, projectName) {
   const addToDoContainer = document.createElement("div");
   addToDoContainer.className = "addToDoContainer";
 
-  createElement(addToDoContainer, "h3", "addToDoTitle", "Create New Task");
+  CreateElement(addToDoContainer, "h3", "addToDoTitle", "Create New Task");
 
   const inputAddToDoTitleDIV = document.createElement("div");
   inputAddToDoTitleDIV.className = "inputAddToDoTitle";
 
-  createElement(inputAddToDoTitleDIV, "p", "inputAddToDoTitle", "Task Name");
+  CreateElement(inputAddToDoTitleDIV, "p", "inputAddToDoTitle", "Task Name");
 
   const inputAddToDoTitle = document.createElement("input");
   inputAddToDoTitle.className = "inputAddToDo inputAddToDoTitle";
@@ -23,7 +23,7 @@ const addToDoDOM = function addToDoDOM(targetEl, projectName) {
   const inputAddToDoDescriptionDIV = document.createElement("div");
   inputAddToDoDescriptionDIV.className = "inputAddToDoDescription";
 
-  createElement(
+  CreateElement(
     inputAddToDoDescriptionDIV,
     "p",
     "inputAddToDoDescription",
@@ -41,7 +41,7 @@ const addToDoDOM = function addToDoDOM(targetEl, projectName) {
   const inputAddToDoDueDateDIV = document.createElement("div");
   inputAddToDoDueDateDIV.className = "inputAddToDoDueDate";
 
-  createElement(inputAddToDoDueDateDIV, "p", "inputAddToDoDescription", "Date");
+  CreateElement(inputAddToDoDueDateDIV, "p", "inputAddToDoDescription", "Date");
 
   const inputAddToDoDueDate = document.createElement("input");
   inputAddToDoDueDate.className = "inputAddToDo inputAddToDoDueDate";
@@ -59,7 +59,7 @@ const addToDoDOM = function addToDoDOM(targetEl, projectName) {
   const inputAddToDoPriorityDIV = document.createElement("div");
   inputAddToDoPriorityDIV.className = "inputAddToDoPriority";
 
-  createElement(
+  CreateElement(
     inputAddToDoPriorityDIV,
     "p",
     "inputAddToDoPriority",
@@ -104,4 +104,4 @@ const addToDoDOM = function addToDoDOM(targetEl, projectName) {
   };
 };
 
-export default addToDoDOM;
+export default AddTask;

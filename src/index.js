@@ -1,9 +1,9 @@
 import "./style.css";
 
 import storageAvailable from "./storageCheck";
-import Header from "./components/header";
+import Header from "./components/Header";
 import Left from "./components/left";
-import AllTasksPage from "./components/AllTasksPage";
+import allTasksPage from "./components/allTasksPage";
 
 const App = function App(parentEl) {
   if (storageAvailable("localStorage")) {
@@ -78,7 +78,7 @@ const App = function App(parentEl) {
     () => {
       destroyLeft();
     },
-    AllTasksPage(parentEl),
+    allTasksPage(parentEl),
     // Router(parentEl, [
     //   ["#Sweet", (targetEl) => PageSweet(targetEl)],
     //   ["#Savory", (targetEl) => PageSavory(targetEl)],

@@ -1,4 +1,4 @@
-import createElement from "./small/createElement";
+import CreateElement from "./small/CreateElement";
 
 const Header = function Header(targetEl) {
   const headerContainer = document.createElement("div");
@@ -11,16 +11,16 @@ const Header = function Header(targetEl) {
   const TitleBox = document.createElement("div");
   TitleBox.className = "TitleBox";
 
-  createElement(
+  CreateElement(
     TitleBox,
     "div",
     "toDoIcon material-symbols-outlined",
     "done_all"
   );
 
-  createElement(TitleBox, "div", "what_logo", "What");
+  CreateElement(TitleBox, "div", "what_logo", "What");
 
-  createElement(TitleBox, "div", "toDo_logo", "ToDo");
+  CreateElement(TitleBox, "div", "toDo_logo", "ToDo");
 
   headerContainer.appendChild(hamburger);
   headerContainer.appendChild(TitleBox);

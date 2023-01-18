@@ -1,7 +1,7 @@
-import liForLeftMenu from "./liForLeftManu";
-import addProjectDOM from "./addProjectDOM";
-import projectsListDIV from "./projectsListDIV";
-import createElement from "./small/createElement";
+import LiForLeftMenu from "./LiForLeftManu";
+import AddProject from "./AddProject";
+import ProjectsList from "./ProjectsList";
+import CreateElement from "./small/CreateElement";
 
 const Left = function Left(
   parentEl,
@@ -18,15 +18,15 @@ const Left = function Left(
   const homePartContainer = document.createElement("div");
   homePartContainer.className = "homePartContainer";
 
-  createElement(homePartContainer, "h2", "homeTitle", "Home");
+  CreateElement(homePartContainer, "h2", "homeTitle", "Home");
 
   const ulHomeWrapper = document.createElement("ul");
   ulHomeWrapper.className = "ulHomeWrapper";
 
-  liForLeftMenu(ulHomeWrapper, "AllTasks", "list_alt", "All Tasks");
-  liForLeftMenu(ulHomeWrapper, "Today", "today", "Today");
-  liForLeftMenu(ulHomeWrapper, "Next7", "date_range", "Next 7 Days");
-  liForLeftMenu(ulHomeWrapper, "Important", "star", "Important");
+  LiForLeftMenu(ulHomeWrapper, "AllTasks", "list_alt", "All Tasks");
+  LiForLeftMenu(ulHomeWrapper, "Today", "today", "Today");
+  LiForLeftMenu(ulHomeWrapper, "Next7", "date_range", "Next 7 Days");
+  LiForLeftMenu(ulHomeWrapper, "Important", "star", "Important");
 
   homePartContainer.appendChild(ulHomeWrapper);
 
@@ -35,9 +35,9 @@ const Left = function Left(
   const projectsContainer = document.createElement("div");
   projectsContainer.className = "projectsContainer";
 
-  createElement(projectsContainer, "h2", "projectsTitle", "Projects");
+  CreateElement(projectsContainer, "h2", "projectsTitle", "Projects");
 
-  projectsListDIV(
+  ProjectsList(
     projectsContainer,
     projects,
     (project) => {
@@ -52,13 +52,13 @@ const Left = function Left(
 
   let destroyAddForm;
 
-  liForLeftMenu(
+  LiForLeftMenu(
     addNewProjectContainer,
     "addProject",
     "add_circle",
     "Add Project",
     () => {
-      destroyAddForm = addProjectDOM(addNewProjectContainer, onAddProject, () =>
+      destroyAddForm = AddProject(addNewProjectContainer, onAddProject, () =>
         destroyAddForm()
       );
     }

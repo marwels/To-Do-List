@@ -1,7 +1,7 @@
-import createElement from "./small/createElement";
-import addToDoDOM from "./addToDoDOM";
+import CreateElement from "./small/CreateElement";
+import AddTask from "./AddTask";
 
-const showProject = function showProject(parentElement, projectName) {
+const ShowProject = function ShowProject(parentElement, projectName) {
   const showProjectPageContainer = document.createElement("div");
   showProjectPageContainer.className = "showProjectPageContainer";
 
@@ -9,9 +9,9 @@ const showProject = function showProject(parentElement, projectName) {
   pageTitle.className = `pageTitle, ${projectName}`;
   pageTitle.innerText = `Project: ${projectName}`;
   showProjectPageContainer.appendChild(pageTitle);
-  addToDoDOM(showProjectPageContainer, projectName);
+  AddTask(showProjectPageContainer, projectName);
 
-  createElement(showProjectPageContainer, "div", "listOfToDosDIV");
+  CreateElement(showProjectPageContainer, "div", "listOfToDosDIV");
 
   parentElement.appendChild(showProjectPageContainer);
 
@@ -20,4 +20,4 @@ const showProject = function showProject(parentElement, projectName) {
   };
 };
 
-export default showProject;
+export default ShowProject;
