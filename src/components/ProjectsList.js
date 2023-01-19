@@ -1,5 +1,5 @@
 import EditableButton from "./EditableButton";
-import ShowProject from "./ShowProject";
+import singleProjectPage from "./singleProjectPage";
 
 const ProjectsList = function ProjectsList(
   targetEl,
@@ -37,13 +37,13 @@ const ProjectsList = function ProjectsList(
     let editableButtonDestroy;
 
     function onEditableButtonChangedName(newVal) {
-      console.log(projectId, newVal);
+      // console.log(projectId, newVal);
       onChangeName(projectId, newVal);
     }
 
     function onEditableButtonClicked() {
-      window.location.hash = `#project${projectId}`;
-      console.log("Show project: " + project.name);
+      window.location.hash = `#project/${projectId}`;
+      // console.log("Show project: " + project.name);
     }
 
     editableButtonDestroy = EditableButton(

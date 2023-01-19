@@ -6,6 +6,7 @@ import Left from "./components/left";
 import allTasksPage from "./components/allTasksPage";
 import Router from "./components/Router";
 import homePage from "./components/home";
+import singleProjectPage from "./components/singleProjectPage";
 
 const App = function App(targetEl) {
   if (storageAvailable("localStorage")) {
@@ -51,7 +52,7 @@ const App = function App(targetEl) {
       name: projectName,
       tasks: new Map(),
     };
-    projects.set(Date.now(), newProject);
+    projects.set(String(Date.now()), newProject);
     refreshLeft();
   }
 
@@ -83,20 +84,16 @@ const App = function App(targetEl) {
     Router(targetEl, [
       ["", (targetEl) => homePage(targetEl)],
       ["allTasks", (targetEl) => allTasksPage(targetEl)],
+      [
+        "project/:projectId",
+        (targetEl, params) => {
+          console.log(params);
+          // return singleProjectPage(targetEl, projects, params.projectId)
+          return singleProjectPage(targetEl, projects, params.projectId);
+        },
+      ],
       // ["today", (targetEl) => TodayPage(targetEl)],
-      // ["next7days", (targetEl) => Next7Page(targetEl)],
-      // ["important", (targetEl) => ImportantPage(targetEl)]
     ]),
-
-    // allTasksPage(rootParentEl),
-
-    // Router(parentEl, [
-    //   ["#Sweet", (targetEl) => PageSweet(targetEl)],
-    //   ["#Savory", (targetEl) => PageSavory(targetEl)],
-    //   ["#Contact", (targetEl) => PageContact(targetEl)],
-    //   ["#Home", (targetEl) => PageHome(targetEl)],
-    //   ["", (targetEl) => PageHome(targetEl)],
-    // ]),
   ];
 
   return () => {

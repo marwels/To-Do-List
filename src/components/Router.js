@@ -1,25 +1,38 @@
 const Router = function Router(parentEl, routes) {
   let currentRoute = window.location.hash;
   let destroy;
+  let currentParams = {};
 
   function selectRoute() {
-    if (currentRoute.includes("project")) {
-      console.log("route project!");
-    }
+    currentParams = {};
     let targetRoute = routes.find((route) => route[0] === currentRoute);
-    if (currentRoute.includes("project")) {
-      console.log("route project!");
-    }
-    if (!targetRoute) {
-      targetRoute = routes.find((route) => route[0] === "");
-    }
+    if (targetRoute) return targetRoute;
+
+    targetRoute = routes.find((route) => {
+      if (route[0].indexOf(":") < 0) return false;
+
+      const routeRegexTempl = route[0].replaceAll(
+        /:([\d\w]+)/g,
+        "(?<$1>[\\S]+)"
+      );
+      const routeRegex = new RegExp(routeRegexTempl);
+      const match = currentRoute.match(routeRegex);
+      if (!match) return false;
+
+      currentParams = match.groups;
+
+      return true;
+    });
+    if (targetRoute) return targetRoute;
+
+    targetRoute = routes.find((route) => route[0] === "");
 
     return targetRoute;
   }
 
   function renderComponent(component) {
     if (destroy) destroy();
-    destroy = component(parentEl);
+    destroy = component(parentEl, currentParams);
   }
 
   function onHashChange() {

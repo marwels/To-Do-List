@@ -6,6 +6,8 @@ const allTasksPage = function allTasksPage(targetEl) {
   pageTitle.innerText = "All Tasks";
   AllTasksPageContainer.appendChild(pageTitle);
 
+  targetEl.appendChild(AllTasksPageContainer);
+
   return () => {
     targetEl.removeChild(AllTasksPageContainer);
   };

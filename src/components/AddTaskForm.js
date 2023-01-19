@@ -1,7 +1,9 @@
 import CreateElement from "./small/CreateElement";
 
-const AddTaskForm = function AddTaskForm(targetEl, projectName) {
-  const addToDoContainer = document.createElement("div");
+const AddTaskForm = function AddTaskForm(targetEl, project, onAddTask) {
+  const task = {};
+  task.projectName = project.name;
+  const addToDoContainer = document.createElement("form");
   addToDoContainer.className = "addToDoContainer";
 
   CreateElement(addToDoContainer, "h3", "addToDoTitle", "Create New Task");
@@ -90,12 +92,27 @@ const AddTaskForm = function AddTaskForm(targetEl, projectName) {
   addButton.innerText = "Add";
   addButton.className = "Add";
   addButton.type = "submit";
-  //   addButton.addEventListener("click", () => {
-  //     onAddProject(inputAddProject.value);
-  //     projectsListDIV(parentEl, targetElForProjectsList, projects);
-  //   });
+  addButton.addEventListener("click", () => {
+    task.name = inputAddToDoTitle.value;
+    task.description = inputAddToDoDescription.value;
+    task.date = inputAddToDoDueDate.value;
+    if (inputAddToDoPriorityLow.checked) {
+      task.priority = 1;
+    } else if (inputAddToDoPriorityMedium.checked) {
+      task.priority = 2;
+    } else if (inputAddToDoPriorityHigh.checked) {
+      task.priority = 3;
+    } else {
+      console.log("sth wrong with priority");
+    }
+    console.log({ task });
+    // onAddTask(task);
+  });
 
   addToDoContainer.appendChild(addButton);
+  // addToDoContainer.addEventListener("submit", () => {
+  //   onAddTask(task);
+  // });
 
   targetEl.appendChild(addToDoContainer);
 
