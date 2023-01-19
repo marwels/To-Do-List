@@ -92,7 +92,8 @@ const AddTaskForm = function AddTaskForm(targetEl, project, onAddTask) {
   addButton.innerText = "Add";
   addButton.className = "Add";
   addButton.type = "submit";
-  addButton.addEventListener("click", () => {
+  addToDoContainer.addEventListener("submit", (e) => {
+    e.preventDefault();
     task.name = inputAddToDoTitle.value;
     task.description = inputAddToDoDescription.value;
     task.date = inputAddToDoDueDate.value;

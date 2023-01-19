@@ -28,9 +28,6 @@ const AddProjectForm = function AddProjectForm(targetEl, onAddProject) {
   addButton.innerText = "Add";
   addButton.className = "Add";
   addButton.type = "submit";
-  addButton.addEventListener("click", () => {
-    onAddProject(inputAddProject.value);
-  });
 
   addProjectContainer.appendChild(addButton);
   addProjectContainer.addEventListener("submit", () => {
