@@ -1,8 +1,14 @@
 import CreateElement from "./small/CreateElement";
 
-const AddTaskForm = function AddTaskForm(targetEl, project, onAddTask) {
+const AddTaskForm = function AddTaskForm(
+  targetEl,
+  project,
+  projectId,
+  onAddTask
+) {
   const task = {};
   task.projectName = project.name;
+  task.projectId = projectId;
   const addToDoContainer = document.createElement("form");
   addToDoContainer.className = "addToDoContainer";
 
@@ -107,13 +113,10 @@ const AddTaskForm = function AddTaskForm(targetEl, project, onAddTask) {
       console.log("sth wrong with priority");
     }
     console.log({ task });
-    // onAddTask(task);
+    onAddTask(projectId, task);
   });
 
   addToDoContainer.appendChild(addButton);
-  // addToDoContainer.addEventListener("submit", () => {
-  //   onAddTask(task);
-  // });
 
   targetEl.appendChild(addToDoContainer);
 

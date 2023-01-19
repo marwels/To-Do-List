@@ -1,5 +1,4 @@
 import EditableButton from "./EditableButton";
-import singleProjectPage from "./singleProjectPage";
 
 const ProjectsList = function ProjectsList(
   targetEl,
@@ -7,8 +6,6 @@ const ProjectsList = function ProjectsList(
   onDelete,
   onChangeName
 ) {
-  // const projectsList = document.createElement("div");
-  // projectsList.className = "projectsList";
   const projectsList = document.createElement("div");
   projectsList.className = "projectsList";
   targetEl.appendChild(projectsList);

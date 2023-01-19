@@ -66,7 +66,12 @@ const App = function App(targetEl) {
     project.name = newName;
     refreshLeft();
   }
-  // document.createDocumentFragment
+
+  function onAddTask(projectId, newTask) {
+    const project = projects.get(projectId);
+    project.tasks.set(String(Date.now()), newTask);
+    // console.log({ project });
+  }
 
   destroyLeft = Left(
     targetEl,
@@ -89,7 +94,12 @@ const App = function App(targetEl) {
         (targetEl, params) => {
           console.log(params);
           // return singleProjectPage(targetEl, projects, params.projectId)
-          return singleProjectPage(targetEl, projects, params.projectId);
+          return singleProjectPage(
+            targetEl,
+            projects,
+            params.projectId,
+            onAddTask
+          );
         },
       ],
       // ["today", (targetEl) => TodayPage(targetEl)],

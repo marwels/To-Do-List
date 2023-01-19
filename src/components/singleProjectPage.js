@@ -4,7 +4,8 @@ import AddTaskForm from "./AddTaskForm";
 const singleProjectPage = function singleProjectPage(
   targetEl,
   projects,
-  projectId
+  projectId,
+  onAddTask
 ) {
   const singleProjectPageContainer = document.createElement("div");
   singleProjectPageContainer.className = "showProjectPageContainer";
@@ -19,7 +20,7 @@ const singleProjectPage = function singleProjectPage(
     pageTitle.className = `pageTitle ${project.name}`;
     pageTitle.innerText = `Project: ${project.name}`;
     singleProjectPageContainer.appendChild(pageTitle);
-    AddTaskForm(singleProjectPageContainer, project);
+    AddTaskForm(singleProjectPageContainer, project, projectId, onAddTask);
 
     const listOfToDosDIV = document.createElement("div");
     listOfToDosDIV.className = "showProjectPageContainer";

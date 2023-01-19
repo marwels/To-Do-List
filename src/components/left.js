@@ -4,7 +4,7 @@ import ProjectsList from "./ProjectsList";
 import CreateElement from "./small/CreateElement";
 
 const Left = function Left(
-  rootParentEl,
+  targetEl,
   projects,
   onAddProject,
   onDeleteProject,
@@ -23,10 +23,18 @@ const Left = function Left(
   const ulHomeWrapper = document.createElement("ul");
   ulHomeWrapper.className = "ulHomeWrapper";
 
-  LiForLeftMenu(ulHomeWrapper, "AllTasks", "list_alt", "All Tasks");
-  LiForLeftMenu(ulHomeWrapper, "Today", "today", "Today");
-  LiForLeftMenu(ulHomeWrapper, "Next7", "date_range", "Next 7 Days");
-  LiForLeftMenu(ulHomeWrapper, "Important", "star", "Important");
+  LiForLeftMenu(ulHomeWrapper, "AllTasks", "list_alt", "All Tasks", () => {
+    window.location.hash = '#allTasks'
+  });
+  LiForLeftMenu(ulHomeWrapper, "Today", "today", "Today", () => {
+    window.location.hash = "#today";
+  });
+  LiForLeftMenu(ulHomeWrapper, "Next7", "date_range", "Next 7 Days", () => {
+    window.location.hash = "#next7";
+  });
+  LiForLeftMenu(ulHomeWrapper, "Important", "star", "Important", () => {
+    window.location.hash = "#important";
+  });
 
   homePartContainer.appendChild(ulHomeWrapper);
 
@@ -44,7 +52,7 @@ const Left = function Left(
       onDeleteProject(project);
     },
     onChangeName,
-    rootParentEl
+    targetEl
   );
 
   const addNewProjectContainer = document.createElement("div");
@@ -70,11 +78,11 @@ const Left = function Left(
   leftContainer.appendChild(homePartContainer);
   leftContainer.appendChild(projectsContainer);
 
-  rootParentEl.appendChild(leftContainer);
+  targetEl.appendChild(leftContainer);
 
   return () => {
     if (destroyAddForm) destroyAddForm();
-    rootParentEl.removeChild(leftContainer);
+    targetEl.removeChild(leftContainer);
   };
 };
 
