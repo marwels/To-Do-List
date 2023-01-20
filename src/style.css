@@ -213,11 +213,11 @@ grid-area: left-side-menu;
     display: flex;
     flex-direction: column;
 }
-.showProjectPageContainer h1.pageTitle {
+.singleProjectPageContainer h1.pageTitle {
     margin-left: 30px;
 }
 
-.showProjectPageContainer .addToDoContainer {
+.singleProjectPageContainer .addToDoContainer {
     margin: 30px;
     border: solid black;
     padding: 15px 25px;
@@ -232,34 +232,34 @@ grid-area: left-side-menu;
     /* justify-items: center; */
 }
 
-.showProjectPageContainer .addToDoContainer .addToDoTitle {
+.singleProjectPageContainer .addToDoContainer .addToDoTitle {
     grid-area: title;
     margin-block-end: 0em;
     line-height: 1;
 }
 
-.showProjectPageContainer .addToDoContainer p {
+.singleProjectPageContainer .addToDoContainer p {
     margin-block-start: 0em;
     margin-block-end: 0em;
 }
 
-.showProjectPageContainer .addToDoContainer div.inputAddToDoTitle {
+.singleProjectPageContainer .addToDoContainer div.inputAddToDoTitle {
     grid-area: taskName;
  } 
 
- .showProjectPageContainer .addToDoContainer .inputAddToDoDescription {
+ .singleProjectPageContainer .addToDoContainer .inputAddToDoDescription {
      grid-area: description;
  }
 
- .showProjectPageContainer .addToDoContainer .inputAddToDoDueDate {
+ .singleProjectPageContainer .addToDoContainer .inputAddToDoDueDate {
      grid-area: date;
  }
 
- .showProjectPageContainer .addToDoContainer .inputAddToDoPriority {
+ .singleProjectPageContainer .addToDoContainer .inputAddToDoPriority {
      grid-area: priority;
  }
 
- .showProjectPageContainer .addToDoContainer .inputAddToDoPriority input[type="radio"] {
+ .singleProjectPageContainer .addToDoContainer .inputAddToDoPriority input[type="radio"] {
     -webkit-appearance: none;
         appearance: none;
         background-color: #fff;
@@ -270,25 +270,25 @@ grid-area: left-side-menu;
     border-radius: 50%;
  }
 
- .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(2):checked,
- .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(2):focus,
- .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(2):hover{
+ .singleProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(2):checked,
+ .singleProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(2):focus,
+ .singleProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(2):hover{
 background-color: green;
  } 
 
- .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(3):checked,
- .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(3):focus, 
- .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(3):hover {
+ .singleProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(3):checked,
+ .singleProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(3):focus, 
+ .singleProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(3):hover {
     background-color: orange;
  }
 
- .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(4):checked,
- .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(4):focus,
- .showProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(4):hover {
+ .singleProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(4):checked,
+ .singleProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(4):focus,
+ .singleProjectPageContainer .addToDoContainer .inputAddToDoPriority:nth-child(4):hover {
     background-color: red;
  }
 
- .showProjectPageContainer .addToDoContainer button.Add {
+ .singleProjectPageContainer .addToDoContainer button.Add {
      grid-area: button;
      justify-self: center;background-color: #fff;
         border: solid #fff;
@@ -297,7 +297,7 @@ background-color: green;
         margin: 5px 0;
  }
 
- .showProjectPageContainer .addToDoContainer button.Add:hover {
+ .singleProjectPageContainer .addToDoContainer button.Add:hover {
      background-color: #6599fa;
      border: solid #6599fa;
     cursor: pointer;

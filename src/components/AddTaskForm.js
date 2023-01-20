@@ -113,7 +113,7 @@ const AddTaskForm = function AddTaskForm(
       console.log("sth wrong with priority");
     }
     console.log({ task });
-    onAddTask(projectId, task);
+    onAddTask(task);
   });
 
   addToDoContainer.appendChild(addButton);

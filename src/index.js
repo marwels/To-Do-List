@@ -7,6 +7,7 @@ import allTasksPage from "./components/allTasksPage";
 import Router from "./components/Router";
 import homePage from "./components/home";
 import singleProjectPage from "./components/singleProjectPage";
+import projectPageMenager from "./components/projectPageMenager";
 
 const App = function App(targetEl) {
   if (storageAvailable("localStorage")) {
@@ -67,12 +68,6 @@ const App = function App(targetEl) {
     refreshLeft();
   }
 
-  function onAddTask(projectId, newTask) {
-    const project = projects.get(projectId);
-    project.tasks.set(String(Date.now()), newTask);
-    // console.log({ project });
-  }
-
   destroyLeft = Left(
     targetEl,
     projects,
@@ -93,13 +88,8 @@ const App = function App(targetEl) {
         "project/:projectId",
         (targetEl, params) => {
           console.log(params);
-          // return singleProjectPage(targetEl, projects, params.projectId)
-          return singleProjectPage(
-            targetEl,
-            projects,
-            params.projectId,
-            onAddTask
-          );
+          // return singleProjectPage(targetEl, projects, params.projectId);
+          return projectPageMenager(targetEl, projects, params.projectId);
         },
       ],
       // ["today", (targetEl) => TodayPage(targetEl)],
