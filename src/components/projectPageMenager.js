@@ -13,7 +13,8 @@ const projectPageMenager = function projectPageMenager(
       targetEl,
       projects,
       projectId,
-      onAddTask
+      onAddTask,
+      onDeleteTask
     );
   }
 
@@ -25,11 +26,18 @@ const projectPageMenager = function projectPageMenager(
     refreshSingleProjectPage();
   }
 
+  function onDeleteTask(deletedTaskId) {
+    const project = projects.get(projectId);
+    project.tasks.delete(deletedTaskId);
+    refreshSingleProjectPage();
+  }
+
   destroySingleProjectPage = singleProjectPage(
     targetEl,
     projects,
     projectId,
-    onAddTask
+    onAddTask,
+    onDeleteTask
   );
 
   return () => {

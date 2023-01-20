@@ -4,7 +4,8 @@ const singleProjectPage = function singleProjectPage(
   targetEl,
   projects,
   projectId,
-  onAddTask
+  onAddTask,
+  onDeleteTask
 ) {
   const singleProjectPageContainer = document.createElement("div");
   singleProjectPageContainer.className = "singleProjectPageContainer";
@@ -107,6 +108,9 @@ const singleProjectPage = function singleProjectPage(
       const singleTaskBin = document.createElement("button");
       singleTaskBin.className = "singleTaskBin material-symbols-outlined";
       singleTaskBin.innerText = "delete";
+      singleTaskBin.addEventListener("click", () => {
+        onDeleteTask(taskId);
+      });
       singleTaskContainer.appendChild(singleTaskBin);
 
       listOfTasks.appendChild(singleTaskContainer);
