@@ -23,7 +23,46 @@ const singleProjectPage = function singleProjectPage(
     AddTaskForm(singleProjectPageContainer, project, projectId, onAddTask);
 
     const listOfTasks = document.createElement("div");
-    listOfTasks.className = "listOfToTasks";
+    listOfTasks.className = "listOfTasks";
+    const listOfTasksTitle = document.createElement("h3");
+    listOfTasksTitle.className = "listOfTasksTitle";
+    listOfTasksTitle.innerText = "Tasks List";
+    listOfTasks.appendChild(listOfTasksTitle);
+
+    const listOfTasksFirstRow = document.createElement("div");
+    listOfTasksFirstRow.className = "listOfTasksFirstRow";
+
+    const listOfTasksFirstRowDone = document.createElement("div");
+    listOfTasksFirstRowDone.className = "listOfTasksFirstRowDone";
+    listOfTasksFirstRowDone.innerText = "Done";
+    listOfTasksFirstRow.appendChild(listOfTasksFirstRowDone);
+
+    const listOfTasksFirstRowPriority = document.createElement("div");
+    listOfTasksFirstRowPriority.className = "listOfTasksFirstRowPriority";
+    listOfTasksFirstRowPriority.innerText = "Priority";
+    listOfTasksFirstRow.appendChild(listOfTasksFirstRowPriority);
+
+    const listOfTasksFirstRowTask = document.createElement("div");
+    listOfTasksFirstRowTask.className = "listOfTasksFirstRowTask";
+    listOfTasksFirstRowTask.innerText = "Task";
+    listOfTasksFirstRow.appendChild(listOfTasksFirstRowTask);
+
+    const listOfTasksFirstRowDescription = document.createElement("div");
+    listOfTasksFirstRowDescription.className = "listOfTasksFirstRowDescription";
+    listOfTasksFirstRowDescription.innerText = "Description";
+    listOfTasksFirstRow.appendChild(listOfTasksFirstRowDescription);
+
+    const listOfTasksFirstRowDate = document.createElement("div");
+    listOfTasksFirstRowDate.className = "listOfTasksFirstRowDate";
+    listOfTasksFirstRowDate.innerText = "Date";
+    listOfTasksFirstRow.appendChild(listOfTasksFirstRowDate);
+
+    const listOfTasksFirstRowDelete = document.createElement("div");
+    listOfTasksFirstRowDelete.className = "listOfTasksFirstRowDelete";
+    listOfTasksFirstRowDelete.innerText = "Delete";
+    listOfTasksFirstRow.appendChild(listOfTasksFirstRowDelete);
+
+    listOfTasks.appendChild(listOfTasksFirstRow);
 
     // all Tasks
     project.tasks.forEach((task, taskId) => {
@@ -31,8 +70,13 @@ const singleProjectPage = function singleProjectPage(
       singleTaskContainer.className = "singleTaskContainer";
       singleTaskContainer.dataset.taskName = task.name;
 
+      const singleTaskStatus = document.createElement("input");
+      singleTaskStatus.className = "singleTaskStatus";
+      singleTaskStatus.setAttribute("type", "checkbox");
+      singleTaskContainer.appendChild(singleTaskStatus);
+
       const singleTaskPriority = document.createElement("div");
-      singleTaskPriority.className = "singleTaskNameDiv";
+      singleTaskPriority.className = "singleTaskPriority";
 
       if (task.priority === 1) {
         singleTaskPriority.classList.add("green");
@@ -60,10 +104,10 @@ const singleProjectPage = function singleProjectPage(
       singleTaskDate.innerText = task.date;
       singleTaskContainer.appendChild(singleTaskDate);
 
-      const singleTaskStatus = document.createElement("input");
-      singleTaskStatus.className = "singleTaskStatus";
-      singleTaskStatus.setAttribute("type", "checkbox");
-      singleTaskContainer.appendChild(singleTaskStatus);
+      const singleTaskBin = document.createElement("button");
+      singleTaskBin.className = "singleTaskBin material-symbols-outlined";
+      singleTaskBin.innerText = "delete";
+      singleTaskContainer.appendChild(singleTaskBin);
 
       listOfTasks.appendChild(singleTaskContainer);
     });

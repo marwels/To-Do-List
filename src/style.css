@@ -3,6 +3,7 @@
     --left-menu-bigger-font-size: 1.5rem;
     --left-menu-smaller-font-size: 1.3rem;
     --left-menu-input-font-size: 1rem;
+    --tasks-font-size:1.1rem;
 }
 
 * {
@@ -220,10 +221,10 @@ grid-area: left-side-menu;
 .singleProjectPageContainer .addToDoContainer {
     margin: 30px;
     border: solid black;
-    padding: 15px 25px;
+    padding: 10px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 10vh auto;
+        grid-template-rows: 5vh auto;
         grid-template-areas: "title         title"
                             "taskName      description"
                             "date           priority"
@@ -302,3 +303,75 @@ background-color: green;
      border: solid #6599fa;
     cursor: pointer;
  }
+
+.singleProjectPageContainer .listOfTasks .listOfTasksTitle {
+    margin-left: 30px;
+}
+
+ .singleProjectPageContainer .listOfTasks .singleTaskContainer,
+  .singleProjectPageContainer .listOfTasks .listOfTasksFirstRow {
+     display: grid;
+     align-items: center;
+     justify-items: center;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "checkbox priority name description date bin";
+    font-size: var(--tasks-font-size);
+    border-bottom-style: groove;
+ }
+
+ .singleProjectPageContainer .listOfTasks .listOfTasksFirstRow {
+    font-weight: bold;
+ }
+
+  .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskStatus,
+  .singleProjectPageContainer .listOfTasks .singleTaskContainer .listOfTasksFirstRowDone {
+grid-area: checkbox;
+ }
+
+ .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskPriority,
+  .singleProjectPageContainer .listOfTasks .singleTaskContainer .listOfTasksFirstRowPriority {
+     grid-area: priority;
+ }
+
+ .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskPriority.green {
+     background-color: green;
+ }
+
+ .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskPriority.orange {
+     background-color: orange;
+ }
+
+ .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskPriority.red {
+     background-color: red;
+ }
+
+ .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskNameDiv,
+ .singleProjectPageContainer .listOfTasks .singleTaskContainer .listOfTasksFirstRowTask {
+     grid-area: name;
+ }
+
+ .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskDescription,
+ .singleProjectPageContainer .listOfTasks .singleTaskContainer .listOfTasksFirstRowDescription {
+     grid-area: description;
+ }
+
+ .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskDate,
+  .singleProjectPageContainer .listOfTasks .singleTaskContainer .listOfTasksFirstRowDate {
+     grid-area: date;
+ }
+
+.singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskBin,
+ .singleProjectPageContainer .listOfTasks .singleTaskContainer .listOfTasksFirstRowDelete {
+    grid-area: bin;
+}
+
+.singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskBin {
+    border: none;
+    background-color: inherit;
+}
+
+.singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskBin:hover {
+    background-color: #6599fa;
+    border: solid #6599fa;
+}
