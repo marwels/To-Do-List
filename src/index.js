@@ -83,7 +83,7 @@ const App = function App(targetEl) {
     },
     Router(targetEl, [
       ["", (targetEl) => homePage(targetEl)],
-      ["allTasks", (targetEl) => allTasksPage(targetEl)],
+      ["allTasks", (targetEl, projects) => allTasksPage(targetEl)],
       [
         "project/:projectId",
         (targetEl, params) => {
