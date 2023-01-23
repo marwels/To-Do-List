@@ -91,8 +91,6 @@ line-height: 1.4;
 .leftContainer {
     padding: 3vh;
 background-color: #ffffffbe;
-/* width: 18vw;
-height: 90vh; */
 grid-area: left-side-menu;
 }
 
@@ -104,7 +102,9 @@ grid-area: left-side-menu;
     margin: 6px 0;
 }
 
-.liForLeftMenu:hover {
+.liForLeftMenu:hover,
+.leftContainer .addProjectContainer:hover,
+.leftContainer .singleProjectContainer:hover {
     background-color: #fbbf68;
         cursor: pointer;
 }
@@ -125,13 +125,6 @@ grid-area: left-side-menu;
     padding: 5px;
     display: flex;
     flex-direction: column;
-
-}
-
-.leftContainer .addProjectContainer:hover,
-.leftContainer .singleProjectContainer:hover {
-    background-color: #fbbf68;
-    cursor: pointer;
 }
 
 .leftContainer .inputAddProject {
