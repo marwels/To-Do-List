@@ -78,6 +78,7 @@ const AddTaskForm = function AddTaskForm(
   inputAddToDoPriorityLow.className = "inputAddToDo inputAddToDoPriority low";
   inputAddToDoPriorityLow.setAttribute("type", "radio");
   inputAddToDoPriorityLow.setAttribute("name", "priority");
+  inputAddToDoPriorityLow.setAttribute("required", "required");
   inputAddToDoPriorityDIV.appendChild(inputAddToDoPriorityLow);
 
   const inputAddToDoPriorityMedium = document.createElement("input");
