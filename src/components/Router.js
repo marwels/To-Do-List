@@ -1,10 +1,11 @@
 const Router = function Router(parentEl, routes) {
-  let currentRoute = window.location.hash;
+  let currentRoute = window.location.hash.substring(1);
   let destroy;
   let currentParams = {};
 
   function selectRoute() {
     currentParams = {};
+    console.log(currentRoute, routes);
     let targetRoute = routes.find((route) => route[0] === currentRoute);
     if (targetRoute) return targetRoute;
 
@@ -36,7 +37,7 @@ const Router = function Router(parentEl, routes) {
   }
 
   function onHashChange() {
-    currentRoute = window.location.hash;
+    currentRoute = window.location.hash.substring(1);
     const nextRoute = selectRoute();
     renderComponent(nextRoute[1]);
   }

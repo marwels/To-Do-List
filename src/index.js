@@ -82,8 +82,7 @@ const App = function App(targetEl) {
       destroyLeft();
     },
     Router(targetEl, [
-      ["", (targetEl) => homePage(targetEl)],
-      ["allTasks", (targetEl, projects) => allTasksPage(targetEl)],
+      ["allTasks", (targetEl) => allTasksPage(targetEl, projects)],
       [
         "project/:projectId",
         (targetEl, params) => {
@@ -92,6 +91,7 @@ const App = function App(targetEl) {
           return projectPageMenager(targetEl, projects, params.projectId);
         },
       ],
+      ["", (targetEl) => homePage(targetEl)],
       // ["today", (targetEl) => TodayPage(targetEl)],
     ]),
   ];
