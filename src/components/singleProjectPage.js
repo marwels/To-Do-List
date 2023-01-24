@@ -34,32 +34,32 @@ const singleProjectPage = function singleProjectPage(
     listOfTasksFirstRow.className = "listOfTasksFirstRow";
 
     const listOfTasksFirstRowDone = document.createElement("div");
-    listOfTasksFirstRowDone.className = "listOfTasksFirstRowDone";
+    listOfTasksFirstRowDone.className = "Done";
     listOfTasksFirstRowDone.innerText = "Done";
     listOfTasksFirstRow.appendChild(listOfTasksFirstRowDone);
 
     const listOfTasksFirstRowPriority = document.createElement("div");
-    listOfTasksFirstRowPriority.className = "listOfTasksFirstRowPriority";
+    listOfTasksFirstRowPriority.className = "Priority";
     listOfTasksFirstRowPriority.innerText = "Priority";
     listOfTasksFirstRow.appendChild(listOfTasksFirstRowPriority);
 
     const listOfTasksFirstRowTask = document.createElement("div");
-    listOfTasksFirstRowTask.className = "listOfTasksFirstRowTask";
+    listOfTasksFirstRowTask.className = "Task";
     listOfTasksFirstRowTask.innerText = "Task";
     listOfTasksFirstRow.appendChild(listOfTasksFirstRowTask);
 
     const listOfTasksFirstRowDescription = document.createElement("div");
-    listOfTasksFirstRowDescription.className = "listOfTasksFirstRowDescription";
+    listOfTasksFirstRowDescription.className = "Description";
     listOfTasksFirstRowDescription.innerText = "Description";
     listOfTasksFirstRow.appendChild(listOfTasksFirstRowDescription);
 
     const listOfTasksFirstRowDate = document.createElement("div");
-    listOfTasksFirstRowDate.className = "listOfTasksFirstRowDate";
+    listOfTasksFirstRowDate.className = "Date";
     listOfTasksFirstRowDate.innerText = "Date";
     listOfTasksFirstRow.appendChild(listOfTasksFirstRowDate);
 
     const listOfTasksFirstRowDelete = document.createElement("div");
-    listOfTasksFirstRowDelete.className = "listOfTasksFirstRowDelete";
+    listOfTasksFirstRowDelete.className = "Delete";
     listOfTasksFirstRowDelete.innerText = "Delete";
     listOfTasksFirstRow.appendChild(listOfTasksFirstRowDelete);
 

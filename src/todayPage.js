@@ -9,19 +9,14 @@ const todayPage = function todayPage(targetEl, projects) {
   const allTasksFirstRow = document.createElement("div");
   allTasksFirstRow.className = "allTasksFirstRow";
 
-  CreateElement(allTasksFirstRow, "div", "todayFirstRowProject", "Project");
-  CreateElement(allTasksFirstRow, "div", "todayFirstRowDone", "Done");
-  CreateElement(allTasksFirstRow, "div", "todayFirstRowPriority", "Priority");
-  CreateElement(allTasksFirstRow, "div", "todayFirstRowTask", "Task");
-  CreateElement(
-    allTasksFirstRow,
-    "div",
-    "todayFirstRowDescription",
-    "Description"
-  );
+  CreateElement(allTasksFirstRow, "div", "Done", "Done");
+  CreateElement(allTasksFirstRow, "div", "Project", "Project");
+  CreateElement(allTasksFirstRow, "div", "Priority", "Priority");
+  CreateElement(allTasksFirstRow, "div", "Task", "Task");
+  CreateElement(allTasksFirstRow, "div", "Description", "Description");
 
   const allTasksFirstRowDelete = document.createElement("div");
-  allTasksFirstRowDelete.className = "allTasksFirstRowDelete";
+  allTasksFirstRowDelete.className = "Delete";
   allTasksFirstRowDelete.innerText = "Delete";
   // add event Listener
   allTasksFirstRow.appendChild(allTasksFirstRowDelete);

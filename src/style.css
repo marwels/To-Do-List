@@ -149,9 +149,7 @@ grid-area: left-side-menu;
     background-color: #ffffff;
 }
 
-.leftContainer .singleProjectContainer button.projectName, 
-.leftContainer .singleProjectContainer .dropdown,
-.leftContainer .singleProjectContainer button.deleteOrRename
+button.projectName, .dropdown, button.deleteOrRename
  {
     background-color: #ffffff;
     border: none;
@@ -207,7 +205,7 @@ grid-area: left-side-menu;
     display: flex;
     flex-direction: column;
 }
-.singleProjectPageContainer h1.pageTitle {
+.pageTitle {
     margin-left: 30px;
 }
 
@@ -297,12 +295,8 @@ background-color: green;
     cursor: pointer;
  }
 
-.singleProjectPageContainer .listOfTasks .listOfTasksTitle {
-    margin-left: 30px;
-}
-
- .singleProjectPageContainer .listOfTasks .singleTaskContainer,
-  .singleProjectPageContainer .listOfTasks .listOfTasksFirstRow {
+ .singleProjectPageContainer .singleTaskContainer,
+  .singleProjectPageContainer .listOfTasksFirstRow {
      display: grid;
      align-items: center;
      justify-items: center;
@@ -313,58 +307,99 @@ background-color: green;
     border-bottom-style: groove;
  }
 
- .singleProjectPageContainer .listOfTasks .listOfTasksFirstRow {
+ .listOfTasksFirstRow, .allTasksFirstRow
+  {
     font-weight: bold;
  }
 
-  .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskStatus,
-  .singleProjectPageContainer .listOfTasks .singleTaskContainer .listOfTasksFirstRowDone {
+  .singleProjectPageContainer .singleTaskStatus, 
+  .singleProjectPageContainer .listOfTasksFirstRowDone {
 grid-area: checkbox;
  }
 
- .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskPriority,
-  .singleProjectPageContainer .listOfTasks .singleTaskContainer .listOfTasksFirstRowPriority {
+ .singleProjectPageContainer .singleTaskPriority,
+  .singleProjectPageContainer .listOfTasksFirstRowPriority {
      grid-area: priority;
  }
 
- .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskPriority.green {
+ .singleTaskPriority.green {
      background-color: green;
  }
 
- .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskPriority.orange {
+ .singleTaskPriority.orange {
      background-color: orange;
  }
 
- .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskPriority.red {
+ .singleTaskPriority.red {
      background-color: red;
  }
 
- .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskNameDiv,
- .singleProjectPageContainer .listOfTasks .singleTaskContainer .listOfTasksFirstRowTask {
+ .singleProjectPageContainer .singleTaskNameDiv,
+ .singleProjectPageContainer .listOfTasksFirstRowTask {
      grid-area: name;
  }
 
- .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskDescription,
- .singleProjectPageContainer .listOfTasks .singleTaskContainer .listOfTasksFirstRowDescription {
+ .singleProjectPageContainer .singleTaskDescription,
+ .singleProjectPageContainer .listOfTasksFirstRowDescription {
      grid-area: description;
  }
 
- .singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskDate,
-  .singleProjectPageContainer .listOfTasks .singleTaskContainer .listOfTasksFirstRowDate {
+ .singleProjectPageContainer .singleTaskDate,
+  .singleProjectPageContainer .listOfTasksFirstRowDate {
      grid-area: date;
  }
 
-.singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskBin,
- .singleProjectPageContainer .listOfTasks .singleTaskContainer .listOfTasksFirstRowDelete {
+.singleProjectPageContainer .singleTaskBin,
+ .singleProjectPageContainer .listOfTasksFirstRowDelete {
     grid-area: bin;
 }
 
-.singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskBin {
+.singleTaskBin {
     border: none;
     background-color: inherit;
 }
 
-.singleProjectPageContainer .listOfTasks .singleTaskContainer .singleTaskBin:hover {
+.singleTaskBin:hover {
     background-color: #6599fa;
     border: solid #6599fa;
 }
+
+.allTasksFirstRow{
+display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "checkbox project priority name description date bin";
+    font-size: var(--tasks-font-size);
+    border-bottom-style: groove;
+}
+
+.allTasksFirstRow.Done {
+    grid-area: checkbox;
+}
+
+.allTasksFirstRow.Project {
+    grid-area: project;
+}
+
+.allTasksFirstRow.Priority {
+    grid-area: priority;
+}
+
+.allTasksFirstRow.Task {
+    grid-area: name;
+}
+
+.allTasksFirstRow.Description {
+    grid-area: description;
+}
+
+.allTasksFirstRow.Date {
+    grid-area: date;
+}
+
+.allTasksFirstRow.Delete {
+    grid-area: bin;}
+
+

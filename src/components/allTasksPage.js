@@ -9,25 +9,15 @@ const allTasksPage = function allTasksPage(targetEl, projects) {
   const allTasksFirstRow = document.createElement("div");
   allTasksFirstRow.className = "allTasksFirstRow";
 
-  CreateElement(allTasksFirstRow, "div", "allTasksFirstRowProject", "Project");
-  CreateElement(allTasksFirstRow, "div", "allTasksFirstRowDone", "Done");
-  CreateElement(
-    allTasksFirstRow,
-    "div",
-    "allTasksFirstRowPriority",
-    "Priority"
-  );
-  CreateElement(allTasksFirstRow, "div", "allTasksFirstRowTask", "Task");
-  CreateElement(
-    allTasksFirstRow,
-    "div",
-    "allTasksFirstRowDescription",
-    "Description"
-  );
-  CreateElement(allTasksFirstRow, "div", "allTasksFirstRowDate", "Date");
+  CreateElement(allTasksFirstRow, "div", "Done", "Done");
+  CreateElement(allTasksFirstRow, "div", "Project", "Project");
+  CreateElement(allTasksFirstRow, "div", "Priority", "Priority");
+  CreateElement(allTasksFirstRow, "div", "Task", "Task");
+  CreateElement(allTasksFirstRow, "div", "Description", "Description");
+  CreateElement(allTasksFirstRow, "div", "Date", "Date");
 
   const allTasksFirstRowDelete = document.createElement("div");
-  allTasksFirstRowDelete.className = "allTasksFirstRowDelete";
+  allTasksFirstRowDelete.className = "Delete";
   allTasksFirstRowDelete.innerText = "Delete";
   // add event Listener
   allTasksFirstRow.appendChild(allTasksFirstRowDelete);
