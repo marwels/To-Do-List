@@ -1,47 +1,35 @@
+import CreateElement from "./small/CreateElement";
+
 const allTasksPage = function allTasksPage(targetEl, projects) {
   const AllTasksPageContainer = document.createElement("div");
   AllTasksPageContainer.className = "AllTasksPageContainer";
 
-  const pageTitle = document.createElement("h1");
-  pageTitle.innerText = "All Tasks";
-  AllTasksPageContainer.appendChild(pageTitle);
+  CreateElement(AllTasksPageContainer, "h1", "pageTitle", "All Tasks");
 
   const allTasksFirstRow = document.createElement("div");
   allTasksFirstRow.className = "allTasksFirstRow";
 
-  const allTasksFirstRowProject = document.createElement("div");
-  allTasksFirstRowProject.className = "allTasksFirstRowProject";
-  allTasksFirstRowProject.innerText = "Project";
-  allTasksFirstRow.appendChild(allTasksFirstRowProject);
-
-  const allTasksFirstRowDone = document.createElement("div");
-  allTasksFirstRowDone.className = "allTasksFirstRowDone";
-  allTasksFirstRowDone.innerText = "Done";
-  allTasksFirstRow.appendChild(allTasksFirstRowDone);
-
-  const allTasksFirstRowPriority = document.createElement("div");
-  allTasksFirstRowPriority.className = "allTasksFirstRowPriority";
-  allTasksFirstRowPriority.innerText = "Priority";
-  allTasksFirstRow.appendChild(allTasksFirstRowPriority);
-
-  const allTasksFirstRowTask = document.createElement("div");
-  allTasksFirstRowTask.className = "allTasksFirstRowTask";
-  allTasksFirstRowTask.innerText = "Task";
-  allTasksFirstRow.appendChild(allTasksFirstRowTask);
-
-  const allTasksFirstRowDescription = document.createElement("div");
-  allTasksFirstRowDescription.className = "allTasksFirstRowDescription";
-  allTasksFirstRowDescription.innerText = "Description";
-  allTasksFirstRow.appendChild(allTasksFirstRowDescription);
-
-  const allTasksFirstRowDate = document.createElement("div");
-  allTasksFirstRowDate.className = "allTasksFirstRowDate";
-  allTasksFirstRowDate.innerText = "Date";
-  allTasksFirstRow.appendChild(allTasksFirstRowDate);
+  CreateElement(allTasksFirstRow, "div", "allTasksFirstRowProject", "Project");
+  CreateElement(allTasksFirstRow, "div", "allTasksFirstRowDone", "Done");
+  CreateElement(
+    allTasksFirstRow,
+    "div",
+    "allTasksFirstRowPriority",
+    "Priority"
+  );
+  CreateElement(allTasksFirstRow, "div", "allTasksFirstRowTask", "Task");
+  CreateElement(
+    allTasksFirstRow,
+    "div",
+    "allTasksFirstRowDescription",
+    "Description"
+  );
+  CreateElement(allTasksFirstRow, "div", "allTasksFirstRowDate", "Date");
 
   const allTasksFirstRowDelete = document.createElement("div");
   allTasksFirstRowDelete.className = "allTasksFirstRowDelete";
   allTasksFirstRowDelete.innerText = "Delete";
+  // add event Listener
   allTasksFirstRow.appendChild(allTasksFirstRowDelete);
 
   AllTasksPageContainer.appendChild(allTasksFirstRow);
