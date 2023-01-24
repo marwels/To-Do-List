@@ -8,6 +8,7 @@ import Router from "./components/Router";
 import homePage from "./components/home";
 import singleProjectPage from "./components/singleProjectPage";
 import projectPageMenager from "./components/projectPageMenager";
+import todayPage from "./todayPage";
 
 const App = function App(targetEl) {
   if (storageAvailable("localStorage")) {
@@ -83,6 +84,7 @@ const App = function App(targetEl) {
     },
     Router(targetEl, [
       ["allTasks", (targetEl) => allTasksPage(targetEl, projects)],
+      ["today", (targetEl) => todayPage(targetEl, projects)],
       [
         "project/:projectId",
         (targetEl, params) => {
