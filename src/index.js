@@ -87,11 +87,10 @@ const App = function App(targetEl) {
         "project/:projectId",
         (targetEl, params) => {
           console.log(params);
-          // return singleProjectPage(targetEl, projects, params.projectId);
           return projectPageMenager(targetEl, projects, params.projectId);
         },
+        ["", (targetEl) => homePage(targetEl)],
       ],
-      ["", (targetEl) => homePage(targetEl)],
       // ["today", (targetEl) => TodayPage(targetEl)],
     ]),
   ];

@@ -5,7 +5,6 @@ const Router = function Router(parentEl, routes) {
 
   function selectRoute() {
     currentParams = {};
-    console.log(currentRoute, routes);
     let targetRoute = routes.find((route) => route[0] === currentRoute);
     if (targetRoute) return targetRoute;
 
