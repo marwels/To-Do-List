@@ -15,8 +15,6 @@ const singleProjectPage = function singleProjectPage(
   if (!project) {
     console.log("Project not found");
   } else {
-    console.log(projects, project, projectId);
-
     const pageTitle = document.createElement("h1");
     pageTitle.className = `pageTitle ${project.name}`;
     pageTitle.innerText = `Project: ${project.name}`;

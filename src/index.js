@@ -40,17 +40,6 @@ const App = function App(targetEl) {
   }
 
   function onAddProject(projectName) {
-    console.log(`Add new project: ${projectName}`);
-
-    // // very simple randomization in case of two projects with the same name
-    // const identifier = function getRandomIntInclusive(min, max) {
-    //   const Mmin = Math.ceil(min);
-    //   const Mmax = Math.floor(max);
-    //   return Math.floor(Math.random() * (Mmax - Mmin + 1) + Mmin); // The maximum is inclusive and the minimum is inclusive
-    // };
-    // const identifierForPush = identifier(1, 1000);
-
-    // const forPush = `${projectName}${identifierForPush}`;
     const newProject = {
       name: projectName,
       tasks: new Map(),
@@ -88,12 +77,10 @@ const App = function App(targetEl) {
       ["today", (targetEl) => todayPage(targetEl, projects)],
       [
         "project/:projectId",
-        (targetEl, params) => {
-          console.log(params);
-          return projectPageMenager(targetEl, projects, params.projectId);
-        },
-        ["", (targetEl) => homePage(targetEl)],
+        (targetEl, params) =>
+          projectPageMenager(targetEl, projects, params.projectId),
       ],
+      ["", (targetEl) => homePage(targetEl)],
       // ["today", (targetEl) => TodayPage(targetEl)],
     ]),
   ];

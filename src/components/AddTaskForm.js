@@ -113,7 +113,6 @@ const AddTaskForm = function AddTaskForm(
     } else {
       console.log("sth wrong with priority");
     }
-    console.log({ task });
     onAddTask(task);
   });
 
