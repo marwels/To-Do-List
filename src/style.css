@@ -312,12 +312,12 @@ background-color: green;
     font-weight: bold;
  }
 
-  .singleProjectPageContainer .singleTaskStatus, 
+  .singleTaskContainer .singleTaskStatus, 
   .singleProjectPageContainer .listOfTasksFirstRowDone {
 grid-area: checkbox;
  }
 
- .singleProjectPageContainer .singleTaskPriority,
+ .singleTaskContainer .singleTaskPriority,
   .singleProjectPageContainer .listOfTasksFirstRowPriority {
      grid-area: priority;
  }
@@ -334,22 +334,22 @@ grid-area: checkbox;
      background-color: red;
  }
 
- .singleProjectPageContainer .singleTaskNameDiv,
+ .singleTaskContainer .singleTaskNameDiv,
  .singleProjectPageContainer .listOfTasksFirstRowTask {
      grid-area: name;
  }
 
- .singleProjectPageContainer .singleTaskDescription,
+ .singleTaskContainer .singleTaskDescription,
  .singleProjectPageContainer .listOfTasksFirstRowDescription {
      grid-area: description;
  }
 
- .singleProjectPageContainer .singleTaskDate,
+ .singleTaskContainer .singleTaskDate,
   .singleProjectPageContainer .listOfTasksFirstRowDate {
      grid-area: date;
  }
 
-.singleProjectPageContainer .singleTaskBin,
+.singleTaskContainer .singleTaskBin,
  .singleProjectPageContainer .listOfTasksFirstRowDelete {
     grid-area: bin;
 }
@@ -364,7 +364,7 @@ grid-area: checkbox;
     border: solid #6599fa;
 }
 
-.allTasksFirstRow{
+.allTasksFirstRow, .singleTaskContainer{
 display: grid;
     align-items: center;
     justify-items: center;
@@ -375,7 +375,7 @@ display: grid;
     border-bottom-style: groove;
 }
 
-.allTasksFirstRow.Done {
+.allTasksFirstRow.Done, .singleTaskContainer .singleTaskStatus {
     grid-area: checkbox;
 }
 

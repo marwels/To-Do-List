@@ -39,8 +39,8 @@ const allTasksPage = function allTasksPage(targetEl, projects) {
 
       const singleTaskProject = document.createElement("div");
       singleTaskProject.className = "singleTaskProject";
-      singleTaskProject.innerText = project;
-      allTasksFirstRow.appendChild(singleTaskContainer);
+      singleTaskProject.innerText = project.name;
+      singleTaskContainer.appendChild(singleTaskProject);
 
       const singleTaskPriority = document.createElement("div");
       singleTaskPriority.className = "singleTaskPriority";
