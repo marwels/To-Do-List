@@ -5,7 +5,12 @@ const allTasksPageManager = function allTasksPageManager(targetEl, projects) {
 
   function refreshAllTasksPage() {
     destroyAllTasksPage();
-    destroyAllTasksPage = allTasksPage(targetEl, projects, onDeleteTask);
+    destroyAllTasksPage = allTasksPage(
+      targetEl,
+      projects,
+      onDeleteTask,
+      onChecked
+    );
   }
 
   function onDeleteTask(deletedTaskId, project) {
@@ -13,7 +18,21 @@ const allTasksPageManager = function allTasksPageManager(targetEl, projects) {
     refreshAllTasksPage();
   }
 
-  destroyAllTasksPage = allTasksPage(targetEl, projects, onDeleteTask);
+  function onChecked(task, project, checked) {
+    if (checked) {
+      task.done = true;
+      console.log(task);
+    } else {
+      task.done = false;
+    }
+  }
+
+  destroyAllTasksPage = allTasksPage(
+    targetEl,
+    projects,
+    onDeleteTask,
+    onChecked
+  );
 
   return () => {
     destroyAllTasksPage();

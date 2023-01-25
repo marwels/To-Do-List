@@ -1,6 +1,11 @@
 import CreateElement from "./small/CreateElement";
 
-const allTasksPage = function allTasksPage(targetEl, projects, onDeleteTask) {
+const allTasksPage = function allTasksPage(
+  targetEl,
+  projects,
+  onDeleteTask,
+  onChecked
+) {
   const AllTasksPageContainer = document.createElement("div");
   AllTasksPageContainer.className = "AllTasksPageContainer";
 
@@ -35,6 +40,18 @@ const allTasksPage = function allTasksPage(targetEl, projects, onDeleteTask) {
       const singleTaskStatus = document.createElement("input");
       singleTaskStatus.className = "singleTaskStatus";
       singleTaskStatus.setAttribute("type", "checkbox");
+      singleTaskStatus.addEventListener("change", () => {
+        if (singleTaskStatus.checked) {
+          console.log("checked");
+          onChecked(task, project, true);
+        } else {
+          console.log("not checked");
+          onChecked(task, project, false);
+        }
+      });
+      if (task.done === true) {
+        singleTaskStatus.checked = true;
+      }
       singleTaskContainer.appendChild(singleTaskStatus);
 
       const singleTaskProject = document.createElement("div");
