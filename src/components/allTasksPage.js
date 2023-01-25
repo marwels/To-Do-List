@@ -1,6 +1,6 @@
 import CreateElement from "./small/CreateElement";
 
-const allTasksPage = function allTasksPage(targetEl, projects) {
+const allTasksPage = function allTasksPage(targetEl, projects, onDeleteTask) {
   const AllTasksPageContainer = document.createElement("div");
   AllTasksPageContainer.className = "AllTasksPageContainer";
 
@@ -74,10 +74,9 @@ const allTasksPage = function allTasksPage(targetEl, projects) {
       const singleTaskBin = document.createElement("button");
       singleTaskBin.className = "singleTaskBin material-symbols-outlined";
       singleTaskBin.innerText = "delete";
-      // singleTaskBin.addEventListener("click", () => {
-      //   project.tasks.delete(taskId);
-      //   // refreshSingleProjectPage();
-      // });
+      singleTaskBin.addEventListener("click", () => {
+        onDeleteTask(taskId, project);
+      });
       singleTaskContainer.appendChild(singleTaskBin);
 
       AllTasksPageContainer.appendChild(singleTaskContainer);

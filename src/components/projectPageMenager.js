@@ -1,6 +1,6 @@
 import singleProjectPage from "./singleProjectPage";
 
-const projectPageMenager = function projectPageMenager(
+const projectPageManager = function projectPageManager(
   targetEl,
   projects,
   projectId
@@ -22,7 +22,6 @@ const projectPageMenager = function projectPageMenager(
     const project = projects.get(projectId);
     project.tasks.set(String(Date.now()), newTask);
     // console.log({ project });
-    // dodać odświeżanie
     refreshSingleProjectPage();
   }
 
@@ -45,4 +44,4 @@ const projectPageMenager = function projectPageMenager(
   };
 };
 
-export default projectPageMenager;
+export default projectPageManager;
