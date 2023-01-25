@@ -5,7 +5,8 @@ const singleProjectPage = function singleProjectPage(
   projects,
   projectId,
   onAddTask,
-  onDeleteTask
+  onDeleteTask,
+  onChecked
 ) {
   const singleProjectPageContainer = document.createElement("div");
   singleProjectPageContainer.className = "singleProjectPageContainer";
@@ -74,6 +75,18 @@ const singleProjectPage = function singleProjectPage(
       const singleTaskStatus = document.createElement("input");
       singleTaskStatus.className = "singleTaskStatus";
       singleTaskStatus.setAttribute("type", "checkbox");
+      singleTaskStatus.addEventListener("change", () => {
+        if (singleTaskStatus.checked) {
+          console.log("checked");
+          onChecked(task, project, true);
+        } else {
+          console.log("not checked");
+          onChecked(task, project, false);
+        }
+      });
+      if (task.done === true) {
+        singleTaskStatus.checked = true;
+      }
       singleTaskContainer.appendChild(singleTaskStatus);
 
       const singleTaskPriority = document.createElement("div");

@@ -14,7 +14,8 @@ const projectPageManager = function projectPageManager(
       projects,
       projectId,
       onAddTask,
-      onDeleteTask
+      onDeleteTask,
+      onChecked
     );
   }
 
@@ -31,12 +32,22 @@ const projectPageManager = function projectPageManager(
     refreshSingleProjectPage();
   }
 
+  function onChecked(task, project, checked) {
+    if (checked) {
+      task.done = true;
+      console.log(task);
+    } else {
+      task.done = false;
+    }
+  }
+
   destroySingleProjectPage = singleProjectPage(
     targetEl,
     projects,
     projectId,
     onAddTask,
-    onDeleteTask
+    onDeleteTask,
+    onChecked
   );
 
   return () => {
