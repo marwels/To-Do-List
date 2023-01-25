@@ -85,7 +85,7 @@ const allTasksPage = function allTasksPage(
 
       const singleTaskDate = document.createElement("div");
       singleTaskDate.className = "singleTaskDate";
-      singleTaskDate.innerText = task.date;
+      singleTaskDate.innerText = new Date(task.date).toLocaleDateString();
       singleTaskContainer.appendChild(singleTaskDate);
 
       const singleTaskBin = document.createElement("button");

@@ -8,7 +8,7 @@ import Router from "./components/Router";
 import homePage from "./components/home";
 import singleProjectPage from "./components/singleProjectPage";
 import projectPageMenager from "./components/projectPageMenager";
-import todayPage from "./todayPage";
+import todayPage from "./components/todayPage";
 import allTasksPageManager from "./components/allTasksPageManager";
 
 const App = function App(targetEl) {

@@ -1,4 +1,4 @@
-import CreateElement from "./components/small/CreateElement";
+import CreateElement from "./small/CreateElement";
 
 const todayPage = function todayPage(targetEl, projects) {
   const todayContainer = document.createElement("div");
@@ -77,7 +77,7 @@ const todayPage = function todayPage(targetEl, projects) {
 
         const singleTaskDate = document.createElement("div");
         singleTaskDate.className = "singleTaskDate";
-        singleTaskDate.innerText = task.date;
+        singleTaskDate.innerText = new Date(task.date).toLocaleDateString();
         singleTaskContainer.appendChild(singleTaskDate);
 
         const singleTaskBin = document.createElement("button");
