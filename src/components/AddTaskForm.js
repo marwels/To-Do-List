@@ -103,7 +103,7 @@ const AddTaskForm = function AddTaskForm(
     e.preventDefault();
     task.name = inputAddToDoTitle.value;
     task.description = inputAddToDoDescription.value;
-    task.date = inputAddToDoDueDate.value;
+    task.date = inputAddToDoDueDate.valueAsDate;
     if (inputAddToDoPriorityLow.checked) {
       task.priority = 1;
     } else if (inputAddToDoPriorityMedium.checked) {

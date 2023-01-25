@@ -21,7 +21,6 @@ const allTasksPageManager = function allTasksPageManager(targetEl, projects) {
   function onChecked(task, project, checked) {
     if (checked) {
       task.done = true;
-      console.log(task);
     } else {
       task.done = false;
     }

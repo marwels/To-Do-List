@@ -26,15 +26,17 @@ const todayPage = function todayPage(targetEl, projects) {
   // all Tasks
 
   projects.forEach((project, projectID) => {
-    let today = new Date();
-    const dd = today.getDate();
-    const mm = today.getMonth() + 1; //January is 0!
-    const yyyy = today.getFullYear();
-    today = dd + mm + yyyy;
+    const today = new Date();
+    const todayDay = today.getDate();
+    const todayMonth = today.getMonth();
+    const todayYear = today.getFullYear();
+
     project.tasks.forEach((task, taskId) => {
-      // check below
-      console.log(today, task.date);
-      if (task.date === today) {
+      if (
+        task.date.getDate() === todayDay &&
+        task.date.getMonth() === todayMonth &&
+        task.date.getFullYear() === todayYear
+      ) {
         const singleTaskContainer = document.createElement("div");
         singleTaskContainer.className = "singleTaskContainer";
         singleTaskContainer.dataset.taskName = task.name;
