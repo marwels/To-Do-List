@@ -24,7 +24,6 @@ const allTasksPage = function allTasksPage(
   const allTasksFirstRowDelete = document.createElement("div");
   allTasksFirstRowDelete.className = "Delete";
   allTasksFirstRowDelete.innerText = "Delete";
-  // add event Listener
   allTasksFirstRow.appendChild(allTasksFirstRowDelete);
 
   AllTasksPageContainer.appendChild(allTasksFirstRow);

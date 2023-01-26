@@ -3,13 +3,11 @@ import "./style.css";
 import storageAvailable from "./storageCheck";
 import Header from "./components/Header";
 import Left from "./components/left";
-import allTasksPage from "./components/allTasksPage";
 import Router from "./components/Router";
 import homePage from "./components/home";
-import singleProjectPage from "./components/singleProjectPage";
 import projectPageMenager from "./components/projectPageMenager";
-import todayPage from "./components/todayPage";
 import allTasksPageManager from "./components/allTasksPageManager";
+import todayPageManager from "./components/todayPageManager";
 
 const App = function App(targetEl) {
   if (storageAvailable("localStorage")) {
@@ -74,7 +72,7 @@ const App = function App(targetEl) {
     },
     Router(targetEl, [
       ["allTasks", (targetEl) => allTasksPageManager(targetEl, projects)],
-      ["today", (targetEl) => todayPage(targetEl, projects)],
+      ["today", (targetEl) => todayPageManager(targetEl, projects)],
       [
         "project/:projectId",
         (targetEl, params) =>

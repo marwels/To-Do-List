@@ -1,6 +1,11 @@
 import CreateElement from "./small/CreateElement";
 
-const todayPage = function todayPage(targetEl, projects) {
+const todayPage = function todayPage(
+  targetEl,
+  projects,
+  onDeleteTask,
+  onChecked
+) {
   const todayContainer = document.createElement("div");
   todayContainer.className = "todayContainer";
 
@@ -44,6 +49,18 @@ const todayPage = function todayPage(targetEl, projects) {
         const singleTaskStatus = document.createElement("input");
         singleTaskStatus.className = "singleTaskStatus";
         singleTaskStatus.setAttribute("type", "checkbox");
+        singleTaskStatus.addEventListener("change", () => {
+          if (singleTaskStatus.checked) {
+            console.log("checked");
+            onChecked(task, project, true);
+          } else {
+            console.log("not checked");
+            onChecked(task, project, false);
+          }
+        });
+        if (task.done === true) {
+          singleTaskStatus.checked = true;
+        }
         singleTaskContainer.appendChild(singleTaskStatus);
 
         const singleTaskProject = document.createElement("div");
@@ -83,6 +100,9 @@ const todayPage = function todayPage(targetEl, projects) {
         const singleTaskBin = document.createElement("button");
         singleTaskBin.className = "singleTaskBin material-symbols-outlined";
         singleTaskBin.innerText = "delete";
+        singleTaskBin.addEventListener("click", () => {
+          onDeleteTask(taskId, project);
+        });
         // singleTaskBin.addEventListener("click", () => {
         //   project.tasks.delete(taskId);
         //   // refreshSingleProjectPage();
