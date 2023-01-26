@@ -8,6 +8,7 @@ import homePage from "./components/home";
 import projectPageMenager from "./components/projectPageMenager";
 import allTasksPageManager from "./components/allTasksPageManager";
 import todayPageManager from "./components/todayPageManager";
+import next7PageManager from "./components/next7PageManager";
 
 const App = function App(targetEl) {
   if (storageAvailable("localStorage")) {
@@ -73,6 +74,8 @@ const App = function App(targetEl) {
     Router(targetEl, [
       ["allTasks", (targetEl) => allTasksPageManager(targetEl, projects)],
       ["today", (targetEl) => todayPageManager(targetEl, projects)],
+      ["today", (targetEl) => todayPageManager(targetEl, projects)],
+      ["next7", (targetEl) => next7PageManager(targetEl, projects)],
       [
         "project/:projectId",
         (targetEl, params) =>
