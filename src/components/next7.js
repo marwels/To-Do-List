@@ -31,18 +31,13 @@ const next7Page = function next7Page(
   // all Tasks
 
   projects.forEach((project, projectID) => {
-    const today = new Date();
-    const todayDay = today.getDate();
-    const todayMonth = today.getMonth();
-    const todayYear = today.getFullYear();
+    const in7Days = new Date();
+    in7Days.setHours(0, 0, 0);
+    in7Days.setDate(in7Days.getDate() + 8);
 
     // change logic!!!
     project.tasks.forEach((task, taskId) => {
-      if (
-        task.date.getDate() === todayDay &&
-        task.date.getMonth() === todayMonth &&
-        task.date.getFullYear() === todayYear
-      ) {
+      if (task.date < in7Days) {
         const singleTaskContainer = document.createElement("div");
         singleTaskContainer.className = "singleTaskContainer";
         singleTaskContainer.dataset.taskName = task.name;
