@@ -9,6 +9,7 @@ import projectPageMenager from "./components/projectPageMenager";
 import allTasksPageManager from "./components/allTasksPageManager";
 import todayPageManager from "./components/todayPageManager";
 import next7PageManager from "./components/next7PageManager";
+import importantManager from "./components/importantManager";
 
 const App = function App(targetEl) {
   if (storageAvailable("localStorage")) {
@@ -76,6 +77,7 @@ const App = function App(targetEl) {
       ["today", (targetEl) => todayPageManager(targetEl, projects)],
       ["today", (targetEl) => todayPageManager(targetEl, projects)],
       ["next7", (targetEl) => next7PageManager(targetEl, projects)],
+      ["important", (targetEl) => importantManager(targetEl, projects)],
       [
         "project/:projectId",
         (targetEl, params) =>
