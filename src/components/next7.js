@@ -23,7 +23,6 @@ const next7Page = function next7Page(
   const allTasksFirstRowDelete = document.createElement("div");
   allTasksFirstRowDelete.className = "Delete";
   allTasksFirstRowDelete.innerText = "Delete";
-  // add event Listener
   allTasksFirstRow.appendChild(allTasksFirstRowDelete);
 
   next7Container.appendChild(allTasksFirstRow);
@@ -35,7 +34,6 @@ const next7Page = function next7Page(
     in7Days.setHours(0, 0, 0);
     in7Days.setDate(in7Days.getDate() + 8);
 
-    // change logic!!!
     project.tasks.forEach((task, taskId) => {
       if (task.date < in7Days) {
         const singleTaskContainer = document.createElement("div");
@@ -99,10 +97,6 @@ const next7Page = function next7Page(
         singleTaskBin.addEventListener("click", () => {
           onDeleteTask(taskId, project);
         });
-        // singleTaskBin.addEventListener("click", () => {
-        //   project.tasks.delete(taskId);
-        //   // refreshSingleProjectPage();
-        // });
         singleTaskContainer.appendChild(singleTaskBin);
 
         next7Container.appendChild(singleTaskContainer);
