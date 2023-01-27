@@ -19,6 +19,7 @@ const next7Page = function next7Page(
   CreateElement(allTasksFirstRow, "div", "Priority", "Priority");
   CreateElement(allTasksFirstRow, "div", "Task", "Task");
   CreateElement(allTasksFirstRow, "div", "Description", "Description");
+  CreateElement(allTasksFirstRow, "div", "Date", "Date");
 
   const allTasksFirstRowDelete = document.createElement("div");
   allTasksFirstRowDelete.className = "Delete";
