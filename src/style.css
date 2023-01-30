@@ -64,19 +64,18 @@ ul {
     justify-content: center;
 }
 
-.headerContainer .hamburger {
+/* .headerContainer .hamburger {
     margin: 0 10px;
     padding: 5px;
     font-size: var(--header-font-size);
 }
-
 
 .headerContainer .hamburger:hover {
     background-color: #f78ccc;
     cursor: pointer;
     border: solid #f78ccc;
     border-radius: 5px;
-}
+} */
 
 .TitleBox .toDoIcon {
 color: #f78ccc;
