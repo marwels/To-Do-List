@@ -1,4 +1,5 @@
 import next7Page from "./next7";
+
 const next7PageManager = function next7PageManager(targetEl, projects) {
   let destroyNext7Page;
 

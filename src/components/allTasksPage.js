@@ -41,10 +41,8 @@ const allTasksPage = function allTasksPage(
       singleTaskStatus.setAttribute("type", "checkbox");
       singleTaskStatus.addEventListener("change", () => {
         if (singleTaskStatus.checked) {
-          console.log("checked");
           onChecked(task, project, true);
         } else {
-          console.log("not checked");
           onChecked(task, project, false);
         }
       });
