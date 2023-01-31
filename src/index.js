@@ -5,31 +5,22 @@ import Header from "./components/Header";
 import Left from "./components/left";
 import Router from "./components/Router";
 import homePage from "./components/home";
-import projectPageMenager from "./components/projectPageMenager";
+import projectManager from "./components/projectManager";
 import allTasksPageManager from "./components/allTasksPageManager";
 import todayPageManager from "./components/todayPageManager";
 import next7PageManager from "./components/next7PageManager";
 import importantManager from "./components/importantManager";
+import singleProjectPage from "./components/singleProjectPage";
+
+const isStorageAvailable = storageAvailable("localStorage");
 
 const App = function App(targetEl) {
-  if (storageAvailable("localStorage")) {
-    // Yippee! We can use localStorage awesomeness
-    // if (!localStorage.getItem("bgcolor")) {
-    //   populateStorage();
-    // } else {
-    //   setStyles();
-    // }
-  } else {
-    // Too bad, no localStorage for us
-  }
-
   const projects = new Map();
 
   let destroyLeft;
 
   function refreshLeft() {
     destroyLeft();
-    // eslint-disable-next-line no-use-before-define
     destroyLeft = Left(
       targetEl,
       projects,
@@ -39,23 +30,31 @@ const App = function App(targetEl) {
     );
   }
 
+  function onProjectChanged() {
+    if (!isStorageAvailable) return;
+    localStorage.setItem("projects", Array.from(projects.entries()));
+  }
+
   function onAddProject(projectName) {
     const newProject = {
       name: projectName,
       tasks: new Map(),
     };
     projects.set(String(Date.now()), newProject);
+    onProjectChanged();
     refreshLeft();
   }
 
   function onDeleteProject(projectId) {
     projects.delete(projectId);
+    onProjectChanged();
     refreshLeft();
   }
 
   function onChangeName(projectId, newName) {
     const project = projects.get(projectId);
     project.name = newName;
+    onProjectChanged();
     refreshLeft();
   }
 
@@ -81,7 +80,36 @@ const App = function App(targetEl) {
       [
         "project/:projectId",
         (targetEl, params) =>
-          projectPageMenager(targetEl, projects, params.projectId),
+          projectManager(
+            targetEl,
+            projects,
+            params.projectId,
+            singleProjectPage
+          ),
+        // projectManager(
+        //   targetEl,
+        //   projects,
+        //   params.projectId,
+        //   (
+        //     targetEl,
+        //     projects,
+        //     projectId,
+        //     onAddTask,
+        //     onDeleteTask,
+        //     onChecked
+        //   ) =>
+        //     projectPage(
+        //       targetEl,
+        //       projects,
+        //       projectId,
+        //       onAddTask,
+        //       onDeleteTask,
+        //       onChecked,
+        //       wlaczJakasFunkcje,
+        //       pokazCos,
+        //       jakisFiltrTaskow
+        //     )
+        // ),
       ],
       ["", (targetEl) => homePage(targetEl)],
       // ["today", (targetEl) => TodayPage(targetEl)],
