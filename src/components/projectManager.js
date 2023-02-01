@@ -1,14 +1,34 @@
-const projectManager = function projectManager(targetEl, projects, child) {
+/* eslint-disable no-undef */
+/* eslint-disable no-use-before-define */
+const projectManager = function projectManager(
+  targetEl,
+  projects,
+  projectId,
+  child
+) {
   let destroyChild;
 
-  function refreshTodayPage() {
+  function refreshChildPage() {
     destroyChild();
-    destroyChild = child(targetEl, projects, onDeleteTask, onChecked);
+    destroyChild = child(
+      targetEl,
+      projects,
+      onAddTask,
+      onDeleteTask,
+      onChecked
+    );
+  }
+
+  function onAddTask(newTask) {
+    const project = projects.get(projectId);
+    project.tasks.set(String(Date.now()), newTask);
+    // console.log({ project });
+    refreshChildPage();
   }
 
   function onDeleteTask(deletedTaskId, project) {
     project.tasks.delete(deletedTaskId);
-    refreshTodayPage();
+    refreshChildPage();
   }
 
   function onChecked(task, project, checked) {
@@ -19,7 +39,14 @@ const projectManager = function projectManager(targetEl, projects, child) {
     }
   }
 
-  destroyChild = child(targetEl, projects, onDeleteTask, onChecked);
+  destroyChild = child(
+    targetEl,
+    projects,
+    projectId,
+    onAddTask,
+    onDeleteTask,
+    onChecked
+  );
 
   return () => {
     destroyChild();
