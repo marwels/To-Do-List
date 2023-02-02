@@ -6,11 +6,12 @@ import Left from "./components/left";
 import Router from "./components/Router";
 import homePage from "./components/home";
 import projectManager from "./components/projectManager";
-import allTasksPageManager from "./components/allTasksPageManager";
 import todayPageManager from "./components/todayPageManager";
 import next7PageManager from "./components/next7PageManager";
 import importantManager from "./components/importantManager";
 import singleProjectPage from "./components/singleProjectPage";
+import tasksDisplayManager from "./components/tasksDisplayManager";
+import allTasksPage from "./components/allTasksPage";
 
 const isStorageAvailable = storageAvailable("localStorage");
 
@@ -72,8 +73,10 @@ const App = function App(targetEl) {
       destroyLeft();
     },
     Router(targetEl, [
-      ["allTasks", (targetEl) => allTasksPageManager(targetEl, projects)],
-      ["today", (targetEl) => todayPageManager(targetEl, projects)],
+      [
+        "allTasks",
+        (targetEl) => tasksDisplayManager(targetEl, projects, allTasksPage),
+      ],
       ["today", (targetEl) => todayPageManager(targetEl, projects)],
       ["next7", (targetEl) => next7PageManager(targetEl, projects)],
       ["important", (targetEl) => importantManager(targetEl, projects)],
