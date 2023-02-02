@@ -13,7 +13,7 @@ const singleProjectPage = function singleProjectPage(
   const project = projects.get(projectId);
 
   if (!project) {
-    console.log("Project not found");
+    console.log("Project not found", projects, projectId);
   } else {
     const pageTitle = document.createElement("h1");
     pageTitle.className = `pageTitle ${project.name}`;

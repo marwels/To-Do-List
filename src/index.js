@@ -18,6 +18,27 @@ const isStorageAvailable = storageAvailable("localStorage");
 const App = function App(targetEl) {
   const projects = new Map();
 
+  function restoreProject() {
+    const restoredProjects = JSON.parse(localStorage.getItem("projects"));
+    for (let i = 0; i < restoredProjects.length; i++) {
+      let ID = restoredProjects[i][0];
+      let project = restoredProjects[i][1];
+
+      const tasks = new Map();
+      project.tasks.forEach((task) => {
+        tasks.set(task[0], task[1]);
+      });
+
+      projects.set(ID, {
+        ...project,
+        tasks,
+      });
+    }
+    console.log(restoredProjects);
+  }
+
+  restoreProject();
+
   let destroyLeft;
 
   function refreshLeft() {
@@ -33,7 +54,22 @@ const App = function App(targetEl) {
 
   function onProjectChanged() {
     if (!isStorageAvailable) return;
-    localStorage.setItem("projects", Array.from(projects.entries()));
+    // if (!localStorage.getItem("projects")) {
+    //   populateStorage();
+    // } else {
+    // }
+    localStorage.setItem(
+      "projects",
+      JSON.stringify(
+        Array.from(projects.entries()).map(([id, project]) => [
+          id,
+          {
+            ...project,
+            tasks: Array.from(project.tasks.entries()),
+          },
+        ])
+      )
+    );
   }
 
   function onAddProject(projectName) {

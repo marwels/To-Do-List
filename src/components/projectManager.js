@@ -13,6 +13,7 @@ const projectManager = function projectManager(
     destroyChild = child(
       targetEl,
       projects,
+      projectId,
       onAddTask,
       onDeleteTask,
       onChecked
@@ -26,7 +27,8 @@ const projectManager = function projectManager(
     refreshChildPage();
   }
 
-  function onDeleteTask(deletedTaskId, project) {
+  function onDeleteTask(deletedTaskId) {
+    const project = projects.get(projectId);
     project.tasks.delete(deletedTaskId);
     refreshChildPage();
   }
