@@ -208,6 +208,10 @@ button.projectName, .dropdown, button.deleteOrRename
     margin-left: 30px;
 }
 
+.homePageContainer p {
+    margin-left: 30px;
+}
+
 .singleProjectPageContainer .addToDoContainer {
     margin: 30px;
     border: solid black;

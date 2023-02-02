@@ -3,6 +3,7 @@ const homePage = function homePage(targetEl) {
   homePageContainer.className = "homePageContainer";
 
   const welcomeTitle = document.createElement("h2");
+  welcomeTitle.className = "pageTitle";
   welcomeTitle.innerText = "Hi! Welcome to WhatToDo App!";
   homePageContainer.appendChild(welcomeTitle);
   const welcomeText = document.createElement("p");
