@@ -11,13 +11,14 @@ const tasksDisplayManager = function tasksDisplayManager(
     destroyChild = child(targetEl, projects, onDeleteTask, onChecked);
   }
 
-  function onDeleteTask(deletedTaskId, project) {
+  function onDeleteTask(deletedTaskId, projectId) {
+    const project = projects.get(projectId);
     project.tasks.delete(deletedTaskId);
     refreshChildPage();
     onProjectChanged();
   }
 
-  function onChecked(task, project, checked) {
+  function onChecked(task, projectId, checked) {
     if (checked) {
       task.done = true;
     } else {
