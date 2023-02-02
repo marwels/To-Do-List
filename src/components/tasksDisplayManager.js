@@ -1,6 +1,7 @@
 const tasksDisplayManager = function tasksDisplayManager(
   targetEl,
   projects,
+  onProjectChanged,
   child
 ) {
   let destroyChild;
@@ -13,6 +14,7 @@ const tasksDisplayManager = function tasksDisplayManager(
   function onDeleteTask(deletedTaskId, project) {
     project.tasks.delete(deletedTaskId);
     refreshChildPage();
+    onProjectChanged();
   }
 
   function onChecked(task, project, checked) {
@@ -21,6 +23,7 @@ const tasksDisplayManager = function tasksDisplayManager(
     } else {
       task.done = false;
     }
+    onProjectChanged();
   }
 
   destroyChild = child(targetEl, projects, onDeleteTask, onChecked);

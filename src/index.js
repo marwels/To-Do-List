@@ -25,8 +25,11 @@ const App = function App(targetEl) {
       let project = restoredProjects[i][1];
 
       const tasks = new Map();
-      project.tasks.forEach((task) => {
-        tasks.set(task[0], task[1]);
+      project.tasks.forEach(([taskId, task]) => {
+        tasks.set(taskId, {
+          ...task,
+          date: new Date(task.date)
+        });
       });
 
       projects.set(ID, {
@@ -34,7 +37,7 @@ const App = function App(targetEl) {
         tasks,
       });
     }
-    console.log(restoredProjects);
+    console.log(projects);
   }
 
   restoreProject();
@@ -54,15 +57,11 @@ const App = function App(targetEl) {
 
   function onProjectChanged() {
     if (!isStorageAvailable) return;
-    // if (!localStorage.getItem("projects")) {
-    //   populateStorage();
-    // } else {
-    // }
     localStorage.setItem(
       "projects",
       JSON.stringify(
-        Array.from(projects.entries()).map(([id, project]) => [
-          id,
+        Array.from(projects.entries()).map(([projectId, project]) => [
+          projectId,
           {
             ...project,
             tasks: Array.from(project.tasks.entries()),
@@ -111,19 +110,33 @@ const App = function App(targetEl) {
     Router(targetEl, [
       [
         "allTasks",
-        (targetEl) => tasksDisplayManager(targetEl, projects, allTasksPage),
+        (targetEl) =>
+          tasksDisplayManager(
+            targetEl,
+            projects,
+            onProjectChanged,
+            allTasksPage
+          ),
       ],
       [
         "today",
-        (targetEl) => tasksDisplayManager(targetEl, projects, todayPage),
+        (targetEl) =>
+          tasksDisplayManager(targetEl, projects, onProjectChanged, todayPage),
       ],
       [
         "next7",
-        (targetEl) => tasksDisplayManager(targetEl, projects, next7Page),
+        (targetEl) =>
+          tasksDisplayManager(targetEl, projects, onProjectChanged, next7Page),
       ],
       [
         "important",
-        (targetEl) => tasksDisplayManager(targetEl, projects, importantPage),
+        (targetEl) =>
+          tasksDisplayManager(
+            targetEl,
+            projects,
+            onProjectChanged,
+            importantPage
+          ),
       ],
       [
         "project/:projectId",
@@ -132,6 +145,7 @@ const App = function App(targetEl) {
             targetEl,
             projects,
             params.projectId,
+            onProjectChanged,
             singleProjectPage
           ),
         // projectManager(

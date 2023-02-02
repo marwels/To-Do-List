@@ -4,6 +4,7 @@ const projectManager = function projectManager(
   targetEl,
   projects,
   projectId,
+  onProjectChanged,
   child
 ) {
   let destroyChild;
@@ -25,12 +26,14 @@ const projectManager = function projectManager(
     project.tasks.set(String(Date.now()), newTask);
     // console.log({ project });
     refreshChildPage();
+    onProjectChanged();
   }
 
   function onDeleteTask(deletedTaskId) {
     const project = projects.get(projectId);
     project.tasks.delete(deletedTaskId);
     refreshChildPage();
+    onProjectChanged();
   }
 
   function onChecked(task, project, checked) {
@@ -39,6 +42,7 @@ const projectManager = function projectManager(
     } else {
       task.done = false;
     }
+    onProjectChanged();
   }
 
   destroyChild = child(
