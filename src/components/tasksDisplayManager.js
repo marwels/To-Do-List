@@ -12,7 +12,7 @@ const tasksDisplayManager = function tasksDisplayManager(
 
   function onDeleteTask(deletedTaskId, project) {
     project.tasks.delete(deletedTaskId);
-    refreshAllTasksPage();
+    refreshChildPage();
   }
 
   function onChecked(task, project, checked) {
