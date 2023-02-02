@@ -28,7 +28,7 @@ const App = function App(targetEl) {
       project.tasks.forEach(([taskId, task]) => {
         tasks.set(taskId, {
           ...task,
-          date: new Date(task.date)
+          date: new Date(task.date),
         });
       });
 
@@ -148,33 +148,8 @@ const App = function App(targetEl) {
             onProjectChanged,
             singleProjectPage
           ),
-        // projectManager(
-        //   targetEl,
-        //   projects,
-        //   params.projectId,
-        //   (
-        //     targetEl,
-        //     projects,
-        //     projectId,
-        //     onAddTask,
-        //     onDeleteTask,
-        //     onChecked
-        //   ) =>
-        //     projectPage(
-        //       targetEl,
-        //       projects,
-        //       projectId,
-        //       onAddTask,
-        //       onDeleteTask,
-        //       onChecked,
-        //       wlaczJakasFunkcje,
-        //       pokazCos,
-        //       jakisFiltrTaskow
-        //     )
-        // ),
       ],
       ["", (targetEl) => homePage(targetEl)],
-      // ["today", (targetEl) => TodayPage(targetEl)],
     ]),
   ];
 
