@@ -301,8 +301,9 @@ background-color: green;
  .singleProjectPageContainer .singleTaskContainer,
   .singleProjectPageContainer .listOfTasksFirstRow {
      display: grid;
-     align-items: center;
-     justify-items: center;
+     align-items: stretch;
+     justify-items: stretch;
+     text-align: center;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
     grid-template-areas: "checkbox priority name description date bin";
@@ -369,8 +370,9 @@ grid-area: checkbox;
 
 .allTasksFirstRow, .singleTaskContainer{
 display: grid;
-    align-items: center;
-    justify-items: center;
+    align-items: stretch;
+    justify-items: stretch;
+    text-align: center;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: auto;
     grid-template-areas: "checkbox project priority name description date bin";
