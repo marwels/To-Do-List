@@ -326,6 +326,10 @@ grid-area: checkbox;
      grid-area: priority;
  }
 
+ .singleTaskPriority {
+border-radius: 5%;
+margin: 5px 25px;
+ }
  .singleTaskPriority.green {
      background-color: green;
  }
