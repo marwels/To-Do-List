@@ -19,24 +19,29 @@ const App = function App(targetEl) {
   const projects = new Map();
 
   function restoreProject() {
-    const restoredProjects = JSON.parse(localStorage.getItem("projects"));
-    for (let i = 0; i < restoredProjects.length; i++) {
-      let ID = restoredProjects[i][0];
-      let project = restoredProjects[i][1];
+    try {
+      const restoredProjects = JSON.parse(localStorage.getItem("projects"));
+      for (let i = 0; i < restoredProjects.length; i++) {
+        let ID = restoredProjects[i][0];
+        let project = restoredProjects[i][1];
 
-      const tasks = new Map();
-      project.tasks.forEach(([taskId, task]) => {
-        tasks.set(taskId, {
-          ...task,
-          date: new Date(task.date),
+        const tasks = new Map();
+        project.tasks.forEach(([taskId, task]) => {
+          tasks.set(taskId, {
+            ...task,
+            date: new Date(task.date),
+          });
         });
-      });
 
-      projects.set(ID, {
-        ...project,
-        tasks,
-      });
+        projects.set(ID, {
+          ...project,
+          tasks,
+        });
+      }
+    } catch (e) {
+      console.error(e);
     }
+
     console.log(projects);
   }
 
