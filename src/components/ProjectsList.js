@@ -101,22 +101,25 @@ const ProjectsList = function ProjectsList(
     });
 
     projectsList.appendChild(singleProjectContainer);
-
-    window.addEventListener("click", (event) => {
-      if (!event.target.matches(".dropbtn")) {
-        const dropdowns = document.getElementsByClassName("dropdown-content");
-        for (let i = 0; i < dropdowns.length; i++) {
-          const openDropdown = dropdowns[i];
-          openDropdown.classList.remove("show");
-        }
-      }
-    });
   });
+
+  function closeOpenDropDowns(event) {
+    if (!event.target.matches(".dropbtn")) {
+      const dropdowns = document.getElementsByClassName("dropdown-content");
+      for (let i = 0; i < dropdowns.length; i++) {
+        const openDropdown = dropdowns[i];
+        openDropdown.classList.remove("show");
+      }
+    }
+  }
+
+  window.addEventListener("click", closeOpenDropDowns);
 
   return () => {
     children.forEach((destroy) => {
       destroy();
     });
+    window.removeEventListener("click", closeOpenDropDowns);
     targetEl.removeChild(projectsList);
   };
 };
